@@ -2,33 +2,41 @@ name: Release
 
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release (e.g. 1.0.0). Leave empty for automated release.'
+        required: true
+        default: ''
+      tag:
+        description: 'NPM tag (latest, stage, next, etc.)'
+        required: true
+        default: 'latest'
 
 permissions:
-  contents: read
+  contents: write
+  issues: write
+  pull-requests: write
+  id-token: write
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}-${{ github.event.inputs.version || 'auto' }}
   cancel-in-progress: true
 
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
-      id-token: write
-      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: Setup Bun.js
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
+
       - name: Cache bun dependencies
         id: bun-cache
         uses: actions/cache@v4
@@ -48,18 +56,31 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
           GIT_AUTHOR_NAME: ${{ github.actor }}
           GIT_AUTHOR_EMAIL: '${{ github.actor }}@users.noreply.github.com'
           GIT_COMMITTER_NAME: ${{ github.actor }}
           GIT_COMMITTER_EMAIL: '${{ github.actor }}@users.noreply.github.com'
-        run: bun release
-
-      - name: Publish to GitHub Packages
-        if: success()
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" > .npmrc
-          # Temporarily scope the package name for GitHub Packages
-          node -e "const fs=require('fs'); const p=JSON.parse(fs.readFileSync('package.json', 'utf8')); p.name='@rutvik24/react-native-alternate-app-icon'; fs.writeFileSync('package.json', JSON.stringify(p, null, 2));"
-          npm publish --registry=https://npm.pkg.github.com || echo "Already published or failed to publish to GitHub Packages"
+          if [ -n "${{ github.event.inputs.version }}" ]; then
+            echo "Manual release: ${{ github.event.inputs.version }} with tag ${{ github.event.inputs.tag }}"
+            
+            # Configure Git
+            git config user.name "${{ github.actor }}"
+            git config user.email "${{ github.actor }}@users.noreply.github.com"
+            
+            # Update version in package.json and create git tag
+            npm version ${{ github.event.inputs.version }} -m "chore(release): %s"
+            
+            # Push the commit and the tag
+            git push origin HEAD --tags
+            
+            # Publish to npm with the specified tag
+            npm publish --tag ${{ github.event.inputs.tag }} --provenance
+            
+            # Create GitHub Release
+            gh release create v${{ github.event.inputs.version }} --title "v${{ github.event.inputs.version }}" --generate-notes
+          else
+            echo "Automated release via semantic-release"
+            bun release
+          fi
