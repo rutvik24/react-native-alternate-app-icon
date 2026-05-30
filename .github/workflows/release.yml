@@ -8,9 +8,14 @@ on:
         required: true
         default: ''
       tag:
-        description: 'NPM tag (latest, stage, next, etc.)'
+        description: 'NPM tag'
+        type: choice
         required: true
         default: 'latest'
+        options:
+          - latest
+          - stage
+          - next
 
 permissions:
   contents: write
