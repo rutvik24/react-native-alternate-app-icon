@@ -5,7 +5,7 @@
 
 # React Native Alternate App Icon
 
-`react-native-alternate-app-icon` is a high-performance library for dynamically changing your app's icon at runtime on **iOS** and **Android**. Built with [Nitro Modules](https://github.com/mrousavy/nitro), it provides a type-safe JavaScript API backed by native Swift and Kotlin implementations.
+`react-native-alternate-app-icon` is a high-performance library for dynamically changing your app's icon at runtime on **iOS** and **Android**. Built with [Nitro Modules](https://nitro.margelo.com), it provides a type-safe JavaScript API backed by native Swift and Kotlin implementations.
 
 Use it for seasonal themes, event-based branding, user personalization, or any scenario where you want to switch icons without shipping a new build.
 
