@@ -21,10 +21,10 @@ Please read our [Code of Conduct](./CODE_OF_CONDUCT.md) before participating. By
 
 - **Bug reports** — reproducible steps, platform (iOS/Android), and React Native version
 - **Feature requests** — open an issue first for larger changes so we can align on design
-- **Documentation** — README fixes and the Docusaurus site under `docs/` ([live docs](https://rutviknabhoya.github.io/react-native-alternate-app-icon/))
+- **Documentation** — README fixes and the Docusaurus site under `docs/` ([live docs](https://rutvik24.github.io/react-native-alternate-app-icon/))
 - **Code** — fixes, native implementations, TypeScript API, or example app improvements
 
-For substantial features or breaking API changes, please [open an issue](https://github.com/rutviknabhoya/react-native-alternate-app-icon/issues) before starting work.
+For substantial features or breaking API changes, please [open an issue](https://github.com/rutvik24/react-native-alternate-app-icon/issues) before starting work.
 
 ## Development setup
 
@@ -40,7 +40,7 @@ For substantial features or breaking API changes, please [open an issue](https:/
 ### Install
 
 ```bash
-git clone https://github.com/rutviknabhoya/react-native-alternate-app-icon.git
+git clone https://github.com/rutvik24/react-native-alternate-app-icon.git
 cd react-native-alternate-app-icon
 bun install
 ```
@@ -71,7 +71,7 @@ bun run codegen
 
 | `docs/` | Docusaurus documentation site (deployed to GitHub Pages) |
 
-Live docs: **https://rutviknabhoya.github.io/react-native-alternate-app-icon/**
+Live docs: **https://rutvik24.github.io/react-native-alternate-app-icon/**
 
 When you change the public API or platform setup steps, update the matching page under `docs/docs/` in the same PR when possible.
 
@@ -161,7 +161,7 @@ Breaking changes must include `BREAKING CHANGE:` in the commit body or use `feat
 
 ## Pull requests
 
-Use the [pull request template](https://github.com/rutviknabhoya/react-native-alternate-app-icon/blob/main/.github/pull_request_template.md) when opening a PR.
+Use the [pull request template](https://github.com/rutvik24/react-native-alternate-app-icon/blob/main/.github/pull_request_template.md) when opening a PR.
 
 1. Fill in the PR description: **what** changed and **why**.
 2. Link related issues (`Fixes #123`).
@@ -173,7 +173,7 @@ Maintainers may request changes or suggest splitting large PRs. Be patient and r
 
 ## Reporting bugs
 
-Use the [issue templates](https://github.com/rutviknabhoya/react-native-alternate-app-icon/issues/new/choose) (**Bug report**, **Feature request**, or **Documentation**) when opening an issue. They include the fields below; you can also use the chooser links for security advisories and the Code of Conduct.
+Use the [issue templates](https://github.com/rutvik24/react-native-alternate-app-icon/issues/new/choose) (**Bug report**, **Feature request**, or **Documentation**) when opening an issue. They include the fields below; you can also use the chooser links for security advisories and the Code of Conduct.
 
 When filing manually, include:
 
@@ -183,7 +183,7 @@ When filing manually, include:
 - Expected vs actual behavior
 - Logs or screenshots if relevant
 
-Security vulnerabilities should **not** be filed as public issues. Use [GitHub Security Advisories](https://github.com/rutviknabhoya/react-native-alternate-app-icon/security/advisories/new) or email the maintainer (see [Code of Conduct](./CODE_OF_CONDUCT.md)).
+Security vulnerabilities should **not** be filed as public issues. Use [GitHub Security Advisories](https://github.com/rutvik24/react-native-alternate-app-icon/security/advisories/new) or email the maintainer (see [Code of Conduct](./CODE_OF_CONDUCT.md)).
 
 ## Releases
 
@@ -191,4 +191,4 @@ Releases are automated with **semantic-release** on the `main` branch (maintaine
 
 ---
 
-Questions? Open a [discussion or issue](https://github.com/rutviknabhoya/react-native-alternate-app-icon/issues) — we're happy to help you get started.
+Questions? Open a [discussion or issue](https://github.com/rutvik24/react-native-alternate-app-icon/issues) — we're happy to help you get started.

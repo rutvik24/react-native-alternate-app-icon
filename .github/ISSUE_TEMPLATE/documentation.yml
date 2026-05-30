@@ -1,13 +1,13 @@
 name: Documentation
 description: Report unclear, missing, or incorrect documentation
-title: "[Docs]: "
+title: '[Docs]: '
 labels:
   - documentation
 body:
   - type: markdown
     attributes:
       value: |
-        Help us improve the README, the [documentation site](https://rutviknabhoya.github.io/react-native-alternate-app-icon/) (`docs/`), or CONTRIBUTING. See [Contributing](https://github.com/rutviknabhoya/react-native-alternate-app-icon/blob/main/CONTRIBUTING.md).
+        Help us improve the README, the [documentation site](https://rutvik24.github.io/react-native-alternate-app-icon/) (`docs/`), or CONTRIBUTING. See [Contributing](https://github.com/rutvik24/react-native-alternate-app-icon/blob/main/CONTRIBUTING.md).
 
   - type: textarea
     id: location

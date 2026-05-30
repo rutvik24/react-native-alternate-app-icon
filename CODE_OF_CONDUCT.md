@@ -61,7 +61,7 @@ representative at an online or offline event.
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported to the community leaders responsible for enforcement at
 [rutviknabhoya2001@gmail.com](mailto:rutviknabhoya2001@gmail.com), or by
-[opening a private security advisory](https://github.com/rutviknabhoya/react-native-alternate-app-icon/security/advisories/new)
+[opening a private security advisory](https://github.com/rutvik24/react-native-alternate-app-icon/security/advisories/new)
 on GitHub for sensitive matters.
 
 All complaints will be reviewed and investigated promptly and fairly.

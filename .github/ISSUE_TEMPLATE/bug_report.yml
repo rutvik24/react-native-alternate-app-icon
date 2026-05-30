@@ -1,15 +1,15 @@
 name: Bug report
 description: Report something that isn't working as expected
-title: "[Bug]: "
+title: '[Bug]: '
 labels:
   - bug
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for helping improve this library. Please read the [Contributing guide](https://github.com/rutviknabhoya/react-native-alternate-app-icon/blob/main/CONTRIBUTING.md) and follow our [Code of Conduct](https://github.com/rutviknabhoya/react-native-alternate-app-icon/blob/main/CODE_OF_CONDUCT.md).
+        Thanks for helping improve this library. Please read the [Contributing guide](https://github.com/rutvik24/react-native-alternate-app-icon/blob/main/CONTRIBUTING.md) and follow our [Code of Conduct](https://github.com/rutvik24/react-native-alternate-app-icon/blob/main/CODE_OF_CONDUCT.md).
 
-        **Do not use this form for security issues.** Use a [private security advisory](https://github.com/rutviknabhoya/react-native-alternate-app-icon/security/advisories/new) instead.
+        **Do not use this form for security issues.** Use a [private security advisory](https://github.com/rutvik24/react-native-alternate-app-icon/security/advisories/new) instead.
 
   - type: textarea
     id: description

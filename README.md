@@ -1,7 +1,7 @@
 [![npm version](https://img.shields.io/npm/v/react-native-alternate-app-icon.svg)](https://www.npmjs.com/package/react-native-alternate-app-icon)
 [![Downloads](https://img.shields.io/npm/dm/react-native-alternate-app-icon.svg)](https://www.npmjs.com/package/react-native-alternate-app-icon)
-![GitHub stars](https://img.shields.io/github/stars/rutviknabhoya/react-native-alternate-app-icon?style=social)
-[![License](https://img.shields.io/npm/l/react-native-alternate-app-icon.svg)](https://github.com/rutviknabhoya/react-native-alternate-app-icon/blob/main/LICENSE)
+![GitHub stars](https://img.shields.io/github/stars/rutvik24/react-native-alternate-app-icon?style=social)
+[![License](https://img.shields.io/npm/l/react-native-alternate-app-icon.svg)](https://github.com/rutvik24/react-native-alternate-app-icon/blob/main/LICENSE)
 
 # React Native Alternate App Icon
 
@@ -9,7 +9,7 @@
 
 Use it for seasonal themes, event-based branding, user personalization, or any scenario where you want to switch icons without shipping a new build.
 
-📖 **[Full documentation](https://rutviknabhoya.github.io/react-native-alternate-app-icon/)** — guides, API reference, and platform setup.
+📖 **[Full documentation](https://rutvik24.github.io/react-native-alternate-app-icon/)** — guides, API reference, and platform setup.
 
 ## Key Features
 
@@ -21,10 +21,10 @@ Use it for seasonal themes, event-based branding, user personalization, or any s
 
 ## Compatibility
 
-| Requirement | Version |
-|---|---|
-| React Native | v0.76.0 or higher |
-| Node.js | 18.0.0 or higher |
+| Requirement                | Version                  |
+| -------------------------- | ------------------------ |
+| React Native               | v0.76.0 or higher        |
+| Node.js                    | 18.0.0 or higher         |
 | react-native-nitro-modules | Required peer dependency |
 
 ## Installation
@@ -173,10 +173,10 @@ app/src/main/res/
 
 Add `activity-alias` entries for each icon variant. The suffix after `MainActivity` in the alias name becomes the icon name in JavaScript:
 
-| Alias name | Icon name for `setIcon()` |
-|---|---|
-| `.MainActivityDefault` | `"Default"` |
-| `.MainActivityAlternativeIcon` | `"AlternativeIcon"` |
+| Alias name                     | Icon name for `setIcon()` |
+| ------------------------------ | ------------------------- |
+| `.MainActivityDefault`         | `"Default"`               |
+| `.MainActivityAlternativeIcon` | `"AlternativeIcon"`       |
 
 ```xml
 <application
@@ -256,13 +256,13 @@ import {
   setIcon,
   getAllAlternativeIcons,
   resetIcon,
-} from 'react-native-alternate-app-icon';
+} from 'react-native-alternate-app-icon'
 ```
 
 You can also access the underlying Nitro hybrid object directly:
 
 ```javascript
-import { AlternateAppIcon } from 'react-native-alternate-app-icon';
+import { AlternateAppIcon } from 'react-native-alternate-app-icon'
 ```
 
 ### `setIcon(iconName: string): Promise<string>`
@@ -270,11 +270,11 @@ import { AlternateAppIcon } from 'react-native-alternate-app-icon';
 Sets the app icon to the specified name. Pass `"Default"` to revert to the primary icon.
 
 ```javascript
-await setIcon('AlternativeIcon');
+await setIcon('AlternativeIcon')
 // => "Icon changed to AlternativeIcon" (iOS)
 // => "Your icon will change to AlternativeIcon" (Android — applied on background)
 
-await setIcon('Default');
+await setIcon('Default')
 ```
 
 ### `getActiveIcon(): Promise<string>`
@@ -282,8 +282,8 @@ await setIcon('Default');
 Returns the name of the currently active icon. Returns `"Default"` when the primary icon is active.
 
 ```javascript
-const activeIcon = await getActiveIcon();
-console.log('Current active icon:', activeIcon);
+const activeIcon = await getActiveIcon()
+console.log('Current active icon:', activeIcon)
 ```
 
 ### `getAllAlternativeIcons(): Promise<string[]>`
@@ -291,8 +291,8 @@ console.log('Current active icon:', activeIcon);
 Returns all available icon names configured in your project.
 
 ```javascript
-const icons = await getAllAlternativeIcons();
-console.log('Available icons:', icons);
+const icons = await getAllAlternativeIcons()
+console.log('Available icons:', icons)
 // => ["Default", "AlternativeIcon"]
 ```
 
@@ -301,43 +301,47 @@ console.log('Available icons:', icons);
 Resets the app icon to the primary/default icon.
 
 ```javascript
-const message = await resetIcon();
-console.log(message);
+const message = await resetIcon()
+console.log(message)
 // => "Icon reset to default."
 ```
 
 ### Full Example
 
 ```javascript
-import React, { useEffect, useState } from 'react';
-import { Button, Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react'
+import { Button, Text, View } from 'react-native'
 import {
   getActiveIcon,
   getAllAlternativeIcons,
   resetIcon,
   setIcon,
-} from 'react-native-alternate-app-icon';
+} from 'react-native-alternate-app-icon'
 
 export default function App() {
-  const [activeIcon, setActiveIcon] = useState('');
-  const [icons, setIcons] = useState([]);
+  const [activeIcon, setActiveIcon] = useState('')
+  const [icons, setIcons] = useState([])
 
   useEffect(() => {
-    (async () => {
-      setActiveIcon(await getActiveIcon());
-      setIcons(await getAllAlternativeIcons());
-    })();
-  }, []);
+    ;(async () => {
+      setActiveIcon(await getActiveIcon())
+      setIcons(await getAllAlternativeIcons())
+    })()
+  }, [])
 
   return (
     <View>
       <Text>Active icon: {activeIcon}</Text>
       {icons.map((icon) => (
-        <Button key={icon} title={`Set ${icon}`} onPress={() => setIcon(icon)} />
+        <Button
+          key={icon}
+          title={`Set ${icon}`}
+          onPress={() => setIcon(icon)}
+        />
       ))}
       <Button title="Reset icon" onPress={resetIcon} />
     </View>
-  );
+  )
 }
 ```
 
@@ -367,7 +371,7 @@ Contributions are welcome! Please read:
 
 - [Contributing guide](./CONTRIBUTING.md) — setup, commits, and pull requests
 - [Code of Conduct](./CODE_OF_CONDUCT.md) — community standards
-- [Open an issue](https://github.com/rutviknabhoya/react-native-alternate-app-icon/issues/new/choose) — bug, feature, or docs templates
+- [Open an issue](https://github.com/rutvik24/react-native-alternate-app-icon/issues/new/choose) — bug, feature, or docs templates
 
 For major changes, open an issue first so we can discuss the approach.
 

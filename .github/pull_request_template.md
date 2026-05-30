@@ -36,11 +36,11 @@ Fixes #
 
 ## Checklist
 
-- [ ] My commits follow [Conventional Commits](https://github.com/rutviknabhoya/react-native-alternate-app-icon/blob/main/CONTRIBUTING.md#commit-messages) and this PR has a clear description
+- [ ] My commits follow [Conventional Commits](https://github.com/rutvik24/react-native-alternate-app-icon/blob/main/CONTRIBUTING.md#commit-messages) and this PR has a clear description
 - [ ] I avoided unrelated drive-by changes
 - [ ] I updated documentation if behavior or setup changed
 - [ ] CI checks pass (or will pass once workflows run)
 
 ## Code of Conduct
 
-By submitting this pull request, I agree to follow the [Code of Conduct](https://github.com/rutviknabhoya/react-native-alternate-app-icon/blob/main/CODE_OF_CONDUCT.md).
+By submitting this pull request, I agree to follow the [Code of Conduct](https://github.com/rutvik24/react-native-alternate-app-icon/blob/main/CODE_OF_CONDUCT.md).
