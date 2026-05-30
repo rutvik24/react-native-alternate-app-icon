@@ -123,7 +123,17 @@ Add `CFBundleIcons` to define your primary and alternate icons:
 
 ### Demo
 
-<video src="./assets/alternate-app-icon-iOS.MP4" width="320" autoplay loop muted playsinline controls />
+<p align="center">
+  <video
+    src="https://raw.githubusercontent.com/rutvik24/react-native-alternate-app-icon/main/assets/alternate-app-icon-iOS.MP4"
+    width="400"
+    autoplay
+    loop
+    muted
+    playsinline
+    controls
+  />
+</p>
 
 ---
 
@@ -222,7 +232,17 @@ Add `activity-alias` entries for each icon variant. The suffix after `MainActivi
 
 ### Demo
 
-<video src="./assets/alternate-app-icon-android.webm" width="320" autoplay loop muted playsinline controls />
+<p align="center">
+  <video
+    src="https://raw.githubusercontent.com/rutvik24/react-native-alternate-app-icon/main/assets/alternate-app-icon-android.webm"
+    width="400"
+    autoplay
+    loop
+    muted
+    playsinline
+    controls
+  />
+</p>
 
 ---
 

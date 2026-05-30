@@ -2,7 +2,7 @@
 
 Docusaurus site for **react-native-alternate-app-icon**, hosted on GitHub Pages at:
 
-**https://rutviknabhoya.github.io/react-native-alternate-app-icon/**
+**https://rutvik24.github.io/react-native-alternate-app-icon/**
 
 ## Development
 

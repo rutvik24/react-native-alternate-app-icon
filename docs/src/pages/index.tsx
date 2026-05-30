@@ -41,9 +41,11 @@ function HomepageHeader() {
               API reference
             </Link>
           </div>
-          <pre className={styles.codeSnippet}>
-            <code>{`await setIcon('AlternativeIcon')`}</code>
-          </pre>
+          <div className={styles.codeSnippet} role="note" aria-label="Example API call">
+            <span className={styles.codeSnippetText}>
+              await setIcon('AlternativeIcon')
+            </span>
+          </div>
         </div>
       </div>
     </header>

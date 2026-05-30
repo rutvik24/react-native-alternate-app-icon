@@ -3,13 +3,23 @@ sidebar_position: 2
 title: Platform notes
 ---
 
+import {Warning} from '@site/src/components/DocAdmonition';
+
 # Platform notes
 
 ## iOS
 
-- Alternate icons require a **physical device or simulator** running iOS **10.3+**.
+- Alternate icons require **iOS 10.3+**.
 - iOS shows a **system alert** when the icon changes — this is expected Apple behavior.
 - The icon name must match a key in `CFBundleAlternateIcons`, or use `"Default"` for the primary icon.
+
+<Warning title="Test on a real device">
+
+Some **recent iOS Simulator versions** fail to show the system alert after an icon change. When that happens, the icon switch may appear to do nothing even though your setup is correct.
+
+**Always verify icon switching on a physical iPhone or iPad** before concluding there is a bug in your app or this library.
+
+</Warning>
 
 ## Android
 

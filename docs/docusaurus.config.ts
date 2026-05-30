@@ -1,9 +1,8 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
+import { themes as prismThemes } from 'prism-react-renderer'
+import type { Config } from '@docusaurus/types'
+import type * as Preset from '@docusaurus/preset-classic'
 
-const repoUrl =
-  'https://github.com/rutviknabhoya/react-native-alternate-app-icon';
+const repoUrl = 'https://github.com/rutvik24/react-native-alternate-app-icon'
 
 const config: Config = {
   title: 'React Native Alternate App Icon',
@@ -14,10 +13,10 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://rutviknabhoya.github.io',
+  url: 'https://rutvik24.github.io',
   baseUrl: '/react-native-alternate-app-icon/',
 
-  organizationName: 'rutviknabhoya',
+  organizationName: 'rutvik24',
   projectName: 'react-native-alternate-app-icon',
 
   onBrokenLinks: 'throw',
@@ -61,6 +60,8 @@ const config: Config = {
       logo: {
         alt: 'Alternate App Icon',
         src: 'img/logo.svg',
+        width: 32,
+        height: 32,
       },
       items: [
         {
@@ -87,25 +88,25 @@ const config: Config = {
         {
           title: 'Documentation',
           items: [
-            {label: 'Introduction', to: '/docs/intro'},
-            {label: 'Installation', to: '/docs/getting-started/installation'},
-            {label: 'API Reference', to: '/docs/api/overview'},
+            { label: 'Introduction', to: '/docs/intro' },
+            { label: 'Installation', to: '/docs/getting-started/installation' },
+            { label: 'API Reference', to: '/docs/api/overview' },
           ],
         },
         {
           title: 'Platform setup',
           items: [
-            {label: 'iOS', to: '/docs/ios/setup'},
-            {label: 'Android', to: '/docs/android/setup'},
-            {label: 'Platform notes', to: '/docs/guides/platform-notes'},
+            { label: 'iOS', to: '/docs/ios/setup' },
+            { label: 'Android', to: '/docs/android/setup' },
+            { label: 'Platform notes', to: '/docs/guides/platform-notes' },
           ],
         },
         {
           title: 'Community',
           items: [
-            {label: 'Issues', href: `${repoUrl}/issues`},
-            {label: 'Contributing', to: '/docs/contributing'},
-            {label: 'Example app', href: `${repoUrl}/tree/main/example`},
+            { label: 'Issues', href: `${repoUrl}/issues` },
+            { label: 'Contributing', to: '/docs/contributing' },
+            { label: 'Example app', href: `${repoUrl}/tree/main/example` },
           ],
         },
       ],
@@ -117,6 +118,6 @@ const config: Config = {
       additionalLanguages: ['bash', 'json', 'kotlin', 'swift'],
     },
   } satisfies Preset.ThemeConfig,
-};
+}
 
-export default config;
+export default config

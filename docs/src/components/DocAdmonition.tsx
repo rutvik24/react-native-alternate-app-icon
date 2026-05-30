@@ -21,3 +21,11 @@ export function Info({title, children}: AdmonitionProps) {
     </Admonition>
   );
 }
+
+export function Warning({title, children}: AdmonitionProps) {
+  return (
+    <Admonition type="warning" title={title}>
+      {children}
+    </Admonition>
+  );
+}

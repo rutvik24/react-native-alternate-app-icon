@@ -80,7 +80,7 @@
   justify-content: center;
   gap: 1rem;
   margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
   flex-wrap: wrap;
   width: 100%;
 }
@@ -96,23 +96,36 @@
 }
 
 .codeSnippet {
-  margin: 3.5rem 0 0;
+  margin: 1.25rem 0 0;
   width: 100%;
   max-width: 28rem;
   padding: 1rem 1.25rem;
   text-align: center;
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(125, 211, 252, 0.25);
-  font-size: 0.95rem;
-  color: #bae6fd;
+  border-radius: 12px;
+  background: #0f172a;
+  border: 1px solid #38bdf8;
+  box-shadow:
+    0 0 0 1px rgba(56, 189, 248, 0.15),
+    0 12px 32px rgba(0, 0, 0, 0.35);
 }
 
-.codeSnippet code {
-  background: transparent;
-  border: none;
-  padding: 0;
-  color: inherit;
+.codeSnippetText {
+  display: block;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 996px) {
+  .codeSnippetText {
+    font-size: 0.9rem;
+    white-space: normal;
+  }
 }
 
 @media screen and (max-width: 996px) {

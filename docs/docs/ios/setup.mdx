@@ -4,7 +4,7 @@ title: iOS setup
 ---
 
 import DemoVideo from '@site/src/components/DemoVideo';
-import {Tip} from '@site/src/components/DocAdmonition';
+import {Tip, Warning} from '@site/src/components/DocAdmonition';
 
 # iOS setup
 
@@ -87,6 +87,12 @@ Add `CFBundleIcons` with your primary and alternate icons:
 ![Xcode — Include all app icon assets](/img/screenshots/xcode-app-icons-source.png)
 
 This checkbox bundles every icon set from the asset catalog so alternates are available at runtime.
+
+<Warning title="Simulator limitations">
+
+On some **latest iOS Simulators**, the system alert after an icon change may not appear, which can make switching look broken. **Test on a real device** to confirm behavior.
+
+</Warning>
 
 ## Demo
 
