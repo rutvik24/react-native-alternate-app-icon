@@ -1,6 +1,6 @@
 {
   "name": "react-native-alternate-app-icon",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "react-native-alternate-app-icon is a react native package built with Nitro for changing app icon on runtime.",
   "main": "./lib/commonjs/index.js",
   "module": "./lib/module/index.js",
