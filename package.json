@@ -15,7 +15,9 @@
     "codegen": "nitrogen --logLevel=\"debug\" && bun run build && node post-script.js",
     "docs": "cd docs && bun start",
     "docs:build": "cd docs && bun run build",
-    "docs:serve": "cd docs && bun run serve"
+    "docs:serve": "cd docs && bun run serve",
+    "prepublishOnly": "node -e \"const n=require('./package.json').name; if(n!=='react-native-alternate-app-icon'){console.error('Run npm publish from the repo root, not docs/ or example/.'); process.exit(1)}\" && bun run build",
+    "publish:npm": "npm pack --dry-run && npm publish"
   },
   "keywords": [
     "react-native",
@@ -23,24 +25,19 @@
   ],
   "files": [
     "src",
-    "react-native.config.js",
     "lib",
     "nitrogen",
-    "cpp",
     "nitro.json",
+    "LICENSE",
+    "README.md",
     "android/build.gradle",
     "android/fix-prefab.gradle",
     "android/gradle.properties",
     "android/CMakeLists.txt",
     "android/src",
-    "ios/**/*.h",
-    "ios/**/*.m",
-    "ios/**/*.mm",
-    "ios/**/*.cpp",
-    "ios/**/*.swift",
+    "ios",
     "app.plugin.js",
-    "*.podspec",
-    "README.md"
+    "*.podspec"
   ],
   "workspaces": [
     "example"

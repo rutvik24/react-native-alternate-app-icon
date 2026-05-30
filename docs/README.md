@@ -12,6 +12,8 @@ bun install
 bun start   # copies demo videos from ../assets/ automatically
 ```
 
+> **Not an npm package.** This folder is private and is **not** published to npm. To publish the library, run from the **repo root**: `bun run build && npm publish`. Docs deploy to GitHub Pages via `.github/workflows/docs.yml`.
+
 Demo videos are synced from the package `assets/` folder into `static/media/` before `start` and `build`.
 
 Open [http://localhost:3000/react-native-alternate-app-icon/](http://localhost:3000/react-native-alternate-app-icon/).

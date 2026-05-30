@@ -1,23 +1,22 @@
-# Publish allowlist: package.json "files". This file excludes dev-only paths if
-# the allowlist is broadened later. Run: npm pack --dry-run
+# Publish the LIBRARY from the repo root only:
+#   bun run build && npm publish
+#
+# Do NOT run npm publish from docs/ or example/ — those are dev-only packages.
+# Verify contents: npm pack --dry-run
 
-# Dependencies & sample app
-node_modules/
+# --- Never publish ---
+docs/
 example/
-
-# CI & VCS
+assets/
+website/
 .github/
 .git/
+node_modules/
+
+# --- Dev tooling & config ---
+.npmignore
 .gitignore
 .gitattributes
-
-# Editor
-.vscode/
-.idea/
-*.iml
-
-# Tooling & dev config
-.npmignore
 .prettierrc
 .prettierrc.js
 .prettierignore
@@ -39,26 +38,38 @@ package-lock.json
 yarn.lock
 pnpm-lock.yaml
 
-# Native / local build output (not needed on npm)
+# --- Editor ---
+.vscode/
+.idea/
+*.iml
+
+# --- Native build output (not shipped on npm) ---
 android/build/
 android/.cxx/
 android/.gradle/
 **/build/
 **/.cxx/
 **/.gradle/
+**/Pods/
+**/*.xcworkspace/
+**/*.xcodeproj/
+**/DerivedData/
 
-# Tests & coverage
+# --- Tests & coverage ---
 **/__tests__/
 **/__mocks__/
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx
 coverage/
 .nyc_output/
 
-# Package media & documentation (dev-only; not part of the npm tarball)
-assets/
-docs/
-website/
+# --- Repo docs (not the npm package README) ---
+CONTRIBUTING.md
+CODE_OF_CONDUCT.md
 
-# Misc
+# --- Misc ---
 .DS_Store
 *.log
 *.tgz

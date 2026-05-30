@@ -5,6 +5,7 @@
   "description": "Documentation site for react-native-alternate-app-icon",
   "packageManager": "bun@1.3.12",
   "scripts": {
+    "prepublishOnly": "node -e \"console.error('\\nThis folder is the Docusaurus docs site, not the npm library.\\n\\nDocs deploy via GitHub Pages. To publish the package, run from the repo root:\\n  cd ..\\n  bun run build\\n  npm publish\\n'); process.exit(1)\"",
     "docusaurus": "docusaurus",
     "sync-media": "node scripts/sync-media.mjs",
     "start": "node scripts/sync-media.mjs && docusaurus start",

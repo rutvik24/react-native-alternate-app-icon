@@ -1,0 +1,3 @@
+# Documentation site — not published to npm (deployed via GitHub Pages).
+# Publish the library from the repo root instead: cd .. && bun run build && npm publish
+*
