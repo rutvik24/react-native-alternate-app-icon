@@ -1,0 +1,49 @@
+---
+sidebar_position: 1
+title: Installation
+---
+
+import {Tip} from '@site/src/components/DocAdmonition';
+
+# Installation
+
+Install the package together with its **required** peer dependency:
+
+```bash
+bun add react-native-alternate-app-icon react-native-nitro-modules
+```
+
+<Tip title="Using npm or yarn?">
+
+The library works with any package manager. Replace `bun add` with `npm install` or `yarn add` if you prefer.
+
+</Tip>
+
+### iOS — CocoaPods
+
+After installing JavaScript dependencies, install native pods:
+
+```bash
+cd ios && pod install
+```
+
+### Rebuild native apps
+
+Icon changes require native configuration. After setup, rebuild your app:
+
+```bash
+# iOS
+bunx react-native run-ios
+
+# Android
+bunx react-native run-android
+```
+
+## Next steps
+
+Platform-specific setup is required before `setIcon()` will work:
+
+- [iOS setup](/docs/ios/setup)
+- [Android setup](/docs/android/setup)
+
+See the [compatibility](/docs/getting-started/compatibility) page for version requirements.

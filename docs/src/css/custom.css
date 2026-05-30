@@ -1,0 +1,129 @@
+/**
+ * Brand palette — React Native cyan accent on deep navy
+ */
+:root {
+  --ifm-color-primary: #0ea5e9;
+  --ifm-color-primary-dark: #0284c7;
+  --ifm-color-primary-darker: #0369a1;
+  --ifm-color-primary-darkest: #075985;
+  --ifm-color-primary-light: #38bdf8;
+  --ifm-color-primary-lighter: #7dd3fc;
+  --ifm-color-primary-lightest: #bae6fd;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(14, 165, 233, 0.12);
+  --ifm-font-family-base:
+    'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
+  --ifm-heading-font-weight: 700;
+  --ifm-navbar-background-color: rgba(15, 23, 42, 0.85);
+  --ifm-hero-background-color: #0f172a;
+}
+
+[data-theme='dark'] {
+  --ifm-background-color: #0b1120;
+  --ifm-background-surface-color: #111827;
+  --ifm-color-primary: #38bdf8;
+  --ifm-color-primary-dark: #0ea5e9;
+  --ifm-color-primary-darker: #0284c7;
+  --ifm-color-primary-darkest: #0369a1;
+  --ifm-color-primary-light: #7dd3fc;
+  --ifm-color-primary-lighter: #bae6fd;
+  --ifm-color-primary-lightest: #e0f2fe;
+  --docusaurus-highlighted-code-line-bg: rgba(56, 189, 248, 0.15);
+  --ifm-navbar-background-color: rgba(11, 17, 32, 0.9);
+}
+
+[data-theme='light'] {
+  --ifm-background-color: #f8fafc;
+  --ifm-hero-background-color: #0f172a;
+}
+
+.hero--primary {
+  --ifm-hero-text-color: #f1f5f9;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 45%, #0c4a6e 100%);
+  text-align: center;
+}
+
+.hero--primary .hero__title {
+  font-size: 2.75rem;
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.feature-card {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 1.5rem;
+  height: 100%;
+  background: var(--ifm-background-surface-color);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 8px 24px rgba(14, 165, 233, 0.12);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.doc-demo-video {
+  display: block;
+  margin: 1rem 0;
+  border-radius: 12px;
+  max-width: 100%;
+  width: 320px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  background: #000;
+}
+
+.table-compatibility th {
+  background: var(--ifm-color-emphasis-100);
+}
+
+/* Callouts — high visibility on dark docs pages */
+.theme-admonition {
+  margin: 1.5rem 0;
+  border-radius: 12px;
+  border-width: 1px;
+  border-style: solid;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.theme-admonition-tip {
+  background: linear-gradient(
+    135deg,
+    rgba(14, 165, 233, 0.22) 0%,
+    rgba(14, 165, 233, 0.08) 100%
+  );
+  border-color: rgba(56, 189, 248, 0.65);
+}
+
+.theme-admonition-info {
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.22) 0%,
+    rgba(99, 102, 241, 0.08) 100%
+  );
+  border-color: rgba(129, 140, 248, 0.65);
+}
+
+.theme-admonition .theme-admonition-heading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.theme-admonition-tip .theme-admonition-heading {
+  color: #7dd3fc;
+}
+
+.theme-admonition-info .theme-admonition-heading {
+  color: #a5b4fc;
+}

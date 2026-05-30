@@ -1,0 +1,84 @@
+---
+sidebar_position: 1
+title: API overview
+---
+
+# API reference
+
+Import the helpers you need:
+
+```javascript
+import {
+  getActiveIcon,
+  setIcon,
+  getAllAlternativeIcons,
+  resetIcon,
+} from 'react-native-alternate-app-icon';
+```
+
+Access the underlying Nitro hybrid object directly:
+
+```javascript
+import { AlternateAppIcon } from 'react-native-alternate-app-icon';
+```
+
+All methods return **Promises**.
+
+---
+
+## `setIcon(iconName: string): Promise<string>`
+
+Sets the app icon to the given name. Pass `"Default"` to restore the primary icon.
+
+```javascript
+await setIcon('AlternativeIcon');
+// iOS:  "Icon changed to AlternativeIcon"
+// Android: "Your icon will change to AlternativeIcon" (applied on background)
+
+await setIcon('Default');
+```
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `iconName` | `string` | Alternate icon key from native config, or `"Default"` |
+
+---
+
+## `getActiveIcon(): Promise<string>`
+
+Returns the currently active icon name. Returns `"Default"` when the primary icon is active.
+
+```javascript
+const activeIcon = await getActiveIcon();
+console.log('Current active icon:', activeIcon);
+```
+
+---
+
+## `getAllAlternativeIcons(): Promise<string[]>`
+
+Returns all icon names configured in your project.
+
+```javascript
+const icons = await getAllAlternativeIcons();
+console.log('Available icons:', icons);
+// => ["Default", "AlternativeIcon"]
+```
+
+---
+
+## `resetIcon(): Promise<string>`
+
+Resets the app icon to the primary/default icon. Equivalent to `setIcon('Default')`.
+
+```javascript
+const message = await resetIcon();
+console.log(message);
+// => "Icon reset to default."
+```
+
+---
+
+## Full example
+
+See the [complete example](/docs/guides/full-example) or the [example app](https://github.com/rutviknabhoya/react-native-alternate-app-icon/tree/main/example) in the repository.

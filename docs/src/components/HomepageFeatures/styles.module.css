@@ -1,0 +1,31 @@
+.features {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 3rem 0 4rem;
+  width: 100%;
+}
+
+.features :global(.container) {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.features :global(.row) {
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.featureCard {
+  margin-bottom: 1rem;
+}
+
+.featureCard p {
+  margin-bottom: 0;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.featureCard code {
+  font-size: 0.9em;
+}

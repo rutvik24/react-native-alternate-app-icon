@@ -1,0 +1,106 @@
+name: Bug report
+description: Report something that isn't working as expected
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve this library. Please read the [Contributing guide](https://github.com/rutviknabhoya/react-native-alternate-app-icon/blob/main/CONTRIBUTING.md) and follow our [Code of Conduct](https://github.com/rutviknabhoya/react-native-alternate-app-icon/blob/main/CODE_OF_CONDUCT.md).
+
+        **Do not use this form for security issues.** Use a [private security advisory](https://github.com/rutviknabhoya/react-native-alternate-app-icon/security/advisories/new) instead.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear description of the bug.
+      placeholder: When I call setIcon('Holiday'), the icon does not change on Android 14...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Minimal steps, code snippets, or a link to a reproduction branch.
+      placeholder: |
+        1. Install react-native-alternate-app-icon@x.x.x
+        2. Configure alternate icons per README
+        3. Call setIcon('...')
+        4. See error / wrong behavior
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - iOS
+        - Android
+        - Both
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: os_version
+    attributes:
+      label: OS version
+      description: e.g. iOS 18.2, Android 14 (API 34)
+      placeholder: iOS 18.2 / Android 14
+    validations:
+      required: true
+
+  - type: input
+    id: library_version
+    attributes:
+      label: Library version
+      description: npm version of react-native-alternate-app-icon
+      placeholder: 0.1.0
+    validations:
+      required: true
+
+  - type: input
+    id: rn_version
+    attributes:
+      label: React Native version
+      placeholder: 0.84.1
+    validations:
+      required: true
+
+  - type: input
+    id: nitro_version
+    attributes:
+      label: react-native-nitro-modules version
+      placeholder: 0.35.9
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs, errors, or screenshots
+      description: Paste relevant logs or attach screenshots. Wrap logs in code fences if long.
+      render: shell
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Acknowledgements
+      options:
+        - label: I have searched existing issues and this is not a duplicate
+          required: true
+        - label: I agree to follow the project's Code of Conduct
+          required: true

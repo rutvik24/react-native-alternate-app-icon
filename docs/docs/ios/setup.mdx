@@ -1,0 +1,102 @@
+---
+sidebar_position: 1
+title: iOS setup
+---
+
+import DemoVideo from '@site/src/components/DemoVideo';
+import {Tip} from '@site/src/components/DocAdmonition';
+
+# iOS setup
+
+iOS alternate icons live in your asset catalog and are registered in `Info.plist`. The **folder name** of each `.appiconset` is the string you pass to `setIcon()`.
+
+## 1. Directory structure
+
+Add primary and alternative icons under `Images.xcassets`:
+
+```
+Images.xcassets
+├── AppIcon.appiconset
+│   ├── Contents.json
+│   └── ... (icon images)
+└── AlternativeIcon.appiconset
+    ├── Contents.json
+    └── ... (icon images)
+```
+
+<Tip title="Single 1024×1024 icon">
+
+Xcode can generate all sizes, or you can provide one universal icon in `Contents.json` (example below).
+
+</Tip>
+
+```json
+{
+  "images": [
+    {
+      "filename": "alternate.png",
+      "idiom": "universal",
+      "platform": "ios",
+      "size": "1024x1024"
+    }
+  ],
+  "info": {
+    "author": "xcode",
+    "version": 1
+  }
+}
+```
+
+## 2. Update Info.plist
+
+Add `CFBundleIcons` with your primary and alternate icons:
+
+```xml
+<key>CFBundleIcons</key>
+<dict>
+  <key>CFBundlePrimaryIcon</key>
+  <dict>
+    <key>CFBundleIconFiles</key>
+    <array>
+      <string>AppIcon</string>
+    </array>
+  </dict>
+  <key>CFBundleAlternateIcons</key>
+  <dict>
+    <key>AlternativeIcon</key>
+    <dict>
+      <key>CFBundleIconFiles</key>
+      <array>
+        <string>AlternativeIcon</string>
+      </array>
+    </dict>
+  </dict>
+</dict>
+```
+
+- **Primary icon:** `CFBundleIconFiles` must match your primary `.appiconset` name (e.g. `AppIcon`).
+- **Alternate icons:** Each key under `CFBundleAlternateIcons` (e.g. `AlternativeIcon`) is the name passed to `setIcon()`.
+
+## 3. Configure Xcode
+
+1. Open your project in Xcode.
+2. Go to **General → App Icons and Launch Screen**.
+3. Set **App Icon** to your default set (e.g. `AppIcon`).
+4. Enable **Include all app icon assets** under **App Icons Source**.
+
+![Xcode — Include all app icon assets](/img/screenshots/xcode-app-icons-source.png)
+
+This checkbox bundles every icon set from the asset catalog so alternates are available at runtime.
+
+## Demo
+
+<DemoVideo src="/media/alternate-app-icon-ios.mp4" />
+
+## Usage
+
+```javascript
+await setIcon('AlternativeIcon');
+await setIcon('Default'); // primary icon
+```
+
+See [Platform notes](/docs/guides/platform-notes) for iOS-specific behavior (system alert, naming rules).

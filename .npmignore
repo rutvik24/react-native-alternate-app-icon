@@ -1,0 +1,66 @@
+# Publish allowlist: package.json "files". This file excludes dev-only paths if
+# the allowlist is broadened later. Run: npm pack --dry-run
+
+# Dependencies & sample app
+node_modules/
+example/
+
+# CI & VCS
+.github/
+.git/
+.gitignore
+.gitattributes
+
+# Editor
+.vscode/
+.idea/
+*.iml
+
+# Tooling & dev config
+.npmignore
+.prettierrc
+.prettierrc.js
+.prettierignore
+.eslintrc
+.eslintrc.js
+.eslintrc.cjs
+.eslintignore
+.editorconfig
+.watchmanconfig
+tsconfig.json
+tsconfig.*.json
+tsconfig.tsbuildinfo
+babel.config.js
+bunfig.toml
+bun.lock
+release.config.cjs
+post-script.js
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Native / local build output (not needed on npm)
+android/build/
+android/.cxx/
+android/.gradle/
+**/build/
+**/.cxx/
+**/.gradle/
+
+# Tests & coverage
+**/__tests__/
+**/__mocks__/
+coverage/
+.nyc_output/
+
+# Package media & documentation (dev-only; not part of the npm tarball)
+assets/
+docs/
+website/
+
+# Misc
+.DS_Store
+*.log
+*.tgz
+.env
+.env.*

@@ -1,0 +1,115 @@
+---
+sidebar_position: 1
+title: Android setup
+---
+
+import DemoVideo from '@site/src/components/DemoVideo';
+import {Info, Tip} from '@site/src/components/DocAdmonition';
+
+# Android setup
+
+Android uses **`activity-alias`** entries in `AndroidManifest.xml`. Each alias maps to a launcher icon. The suffix after `MainActivity` in the alias name becomes the icon name in JavaScript.
+
+## 1. Add icon assets
+
+Place launcher icons in `mipmap-*` folders with consistent names across densities:
+
+```
+app/src/main/res/
+├── mipmap-mdpi/
+│   ├── ic_launcher_alternate.png
+│   └── ic_launcher_alternate_round.png
+├── mipmap-hdpi/
+│   └── ...
+├── mipmap-xhdpi/
+│   └── ...
+├── mipmap-xxhdpi/
+│   └── ...
+├── mipmap-xxxhdpi/
+│   └── ...
+└── mipmap-anydpi-v26/
+    ├── ic_launcher_alternate.xml
+    └── ic_launcher_alternate_round.xml
+```
+
+<Tip title="Image Asset Studio">
+
+Use **File → New → Image Asset** in Android Studio to generate all required sizes.
+
+</Tip>
+
+## 2. Configure AndroidManifest.xml
+
+Add `activity-alias` entries for each icon variant:
+
+| Alias name | Icon name for `setIcon()` |
+| --- | --- |
+| `.MainActivityDefault` | `"Default"` |
+| `.MainActivityAlternativeIcon` | `"AlternativeIcon"` |
+
+```xml
+<application
+  android:name=".MainApplication"
+  android:label="@string/app_name"
+  android:icon="@mipmap/ic_launcher"
+  android:roundIcon="@mipmap/ic_launcher_round"
+  ...>
+
+  <activity
+    android:name=".MainActivity"
+    android:label="@string/app_name"
+    android:launchMode="singleTask"
+    android:exported="true">
+    <intent-filter>
+      <action android:name="android.intent.action.MAIN" />
+      <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+  </activity>
+
+  <activity-alias
+    android:name="${applicationId}.MainActivityDefault"
+    android:targetActivity=".MainActivity"
+    android:icon="@mipmap/ic_launcher"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:label="@string/app_name"
+    android:enabled="false"
+    android:exported="true">
+    <intent-filter>
+      <action android:name="android.intent.action.MAIN" />
+      <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+  </activity-alias>
+
+  <activity-alias
+    android:name="${applicationId}.MainActivityAlternativeIcon"
+    android:targetActivity=".MainActivity"
+    android:icon="@mipmap/ic_launcher_alternate"
+    android:roundIcon="@mipmap/ic_launcher_alternate_round"
+    android:label="@string/app_name"
+    android:enabled="false"
+    android:exported="true">
+    <intent-filter>
+      <action android:name="android.intent.action.MAIN" />
+      <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+  </activity-alias>
+
+</application>
+```
+
+<Info title="Background switch">
+
+On Android, icon changes apply when the app moves to the **background**. The library handles this automatically and defers the switch if OAuth or other overlay activities are active.
+
+</Info>
+
+## Demo
+
+<DemoVideo src="/media/alternate-app-icon-android.webm" />
+
+## Usage
+
+```javascript
+await setIcon('AlternativeIcon');
+// => "Your icon will change to AlternativeIcon" (applied on background)
+```

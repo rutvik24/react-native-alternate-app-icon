@@ -1,0 +1,42 @@
+name: Documentation
+description: Report unclear, missing, or incorrect documentation
+title: "[Docs]: "
+labels:
+  - documentation
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Help us improve the README, the [documentation site](https://rutviknabhoya.github.io/react-native-alternate-app-icon/) (`docs/`), or CONTRIBUTING. See [Contributing](https://github.com/rutviknabhoya/react-native-alternate-app-icon/blob/main/CONTRIBUTING.md).
+
+  - type: textarea
+    id: location
+    attributes:
+      label: Where is the issue?
+      description: Link or path (e.g. README iOS setup, CONTRIBUTING.md).
+      placeholder: docs/docs/android/setup.mdx — activity-alias section
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue
+    attributes:
+      label: What is unclear or wrong?
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested improvement
+      description: Optional — how you think it should read or what to add.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Acknowledgements
+      options:
+        - label: I agree to follow the project's Code of Conduct
+          required: true

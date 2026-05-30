@@ -1,0 +1,48 @@
+---
+sidebar_position: 1
+slug: /intro
+title: Introduction
+description: Dynamically change your React Native app icon on iOS and Android at runtime.
+---
+
+# React Native Alternate App Icon
+
+`react-native-alternate-app-icon` is a high-performance library for **changing your app icon at runtime** on **iOS** and **Android**. It exposes a type-safe JavaScript API backed by native Swift and Kotlin implementations via [Nitro Modules](https://github.com/mrousavy/nitro).
+
+Use it for seasonal themes, event-based branding, user personalization, or any scenario where you want alternate icons without shipping a new build.
+
+## Key features
+
+| Feature | Description |
+| --- | --- |
+| **Runtime icon switching** | Change the launcher icon while the app is installed |
+| **Cross-platform API** | Same `setIcon`, `getActiveIcon`, and related functions on iOS and Android |
+| **Nitro-powered** | Fast native bindings through `react-native-nitro-modules` |
+| **New Architecture** | Works with Fabric and TurboModules |
+| **Event-driven UX** | Swap icons for holidays, promotions, or user preferences |
+
+## Quick start
+
+```bash
+bun add react-native-alternate-app-icon react-native-nitro-modules
+cd ios && pod install
+```
+
+Then configure alternate icons for your platform:
+
+- [iOS setup](/docs/ios/setup) — asset catalog + `Info.plist` + Xcode
+- [Android setup](/docs/android/setup) — mipmaps + `activity-alias` entries
+
+```javascript
+import { setIcon, getActiveIcon } from 'react-native-alternate-app-icon';
+
+await setIcon('AlternativeIcon');
+const active = await getActiveIcon();
+```
+
+## What's next?
+
+1. [Installation](/docs/getting-started/installation) — peer dependencies and project requirements
+2. [Compatibility](/docs/getting-started/compatibility) — supported React Native and Node versions
+3. [API reference](/docs/api/overview) — full method documentation
+4. [Example app](https://github.com/rutviknabhoya/react-native-alternate-app-icon/tree/main/example) — working reference project in the library repo

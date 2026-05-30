@@ -1,0 +1,8 @@
+{
+  "label": "iOS",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Configure alternate app icons in Xcode and Info.plist."
+  }
+}

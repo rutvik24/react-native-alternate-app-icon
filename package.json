@@ -12,7 +12,10 @@
     "clean": "git clean -dfX",
     "release": "semantic-release",
     "build": "bun run typecheck && bob build",
-    "codegen": "nitrogen --logLevel=\"debug\" && bun run build && node post-script.js"
+    "codegen": "nitrogen --logLevel=\"debug\" && bun run build && node post-script.js",
+    "docs": "cd docs && bun start",
+    "docs:build": "cd docs && bun run build",
+    "docs:serve": "cd docs && bun run serve"
   },
   "keywords": [
     "react-native",
@@ -42,11 +45,11 @@
   "workspaces": [
     "example"
   ],
-  "repository": "https://github.com/rutviknabhoya/react-native-alternate-app-icon.git",
-  "author": "Rutvik Nabhoya",
+  "repository": "https://github.com/rutvik24/react-native-alternate-app-icon.git",
+  "author": "Rutvik Nabhoya <rutviknabhoya2001@gmail.com> (https://github.com/rutvik24)",
   "license": "MIT",
-  "bugs": "https://github.com/rutviknabhoya/react-native-alternate-app-icon/issues",
-  "homepage": "https://github.com/rutviknabhoya/react-native-alternate-app-icon#readme",
+  "bugs": "https://github.com/rutvik24/react-native-alternate-app-icon/issues",
+  "homepage": "https://rutvik24.github.io/react-native-alternate-app-icon/",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"

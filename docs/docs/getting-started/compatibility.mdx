@@ -1,0 +1,37 @@
+---
+sidebar_position: 2
+title: Compatibility
+---
+
+# Compatibility
+
+## Requirements
+
+| Requirement | Version |
+| --- | --- |
+| React Native | **v0.76.0** or higher |
+| Node.js | **18.0.0** or higher |
+| `react-native-nitro-modules` | Required peer dependency |
+
+## Architecture support
+
+The library is built with Nitro Modules and supports React Native's **New Architecture** (Fabric and TurboModules).
+
+## Platform minimums
+
+| Platform | Notes |
+| --- | --- |
+| **iOS** | iOS **10.3+** for alternate icons; test on device or simulator |
+| **Android** | Standard launcher icon aliases via `activity-alias` |
+
+## Peer dependencies
+
+Your app must include:
+
+```json
+{
+  "react-native-nitro-modules": "*"
+}
+```
+
+Pin versions to match your Nitro / Nitrogen toolchain if you use codegen in your own native modules.

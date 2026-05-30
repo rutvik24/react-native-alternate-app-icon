@@ -1,0 +1,47 @@
+---
+sidebar_position: 1
+title: Full example
+---
+
+# Full example
+
+A minimal UI that lists available icons and switches between them:
+
+```javascript
+import React, { useEffect, useState } from 'react';
+import { Button, Text, View } from 'react-native';
+import {
+  getActiveIcon,
+  getAllAlternativeIcons,
+  resetIcon,
+  setIcon,
+} from 'react-native-alternate-app-icon';
+
+export default function App() {
+  const [activeIcon, setActiveIcon] = useState('');
+  const [icons, setIcons] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      setActiveIcon(await getActiveIcon());
+      setIcons(await getAllAlternativeIcons());
+    })();
+  }, []);
+
+  return (
+    <View>
+      <Text>Active icon: {activeIcon}</Text>
+      {icons.map((icon) => (
+        <Button
+          key={icon}
+          title={`Set ${icon}`}
+          onPress={() => setIcon(icon)}
+        />
+      ))}
+      <Button title="Reset icon" onPress={resetIcon} />
+    </View>
+  );
+}
+```
+
+The repository includes a runnable project under [`example/`](https://github.com/rutviknabhoya/react-native-alternate-app-icon/tree/main/example) with iOS and Android assets preconfigured.

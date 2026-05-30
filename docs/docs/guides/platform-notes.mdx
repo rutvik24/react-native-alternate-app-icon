@@ -1,0 +1,26 @@
+---
+sidebar_position: 2
+title: Platform notes
+---
+
+# Platform notes
+
+## iOS
+
+- Alternate icons require a **physical device or simulator** running iOS **10.3+**.
+- iOS shows a **system alert** when the icon changes — this is expected Apple behavior.
+- The icon name must match a key in `CFBundleAlternateIcons`, or use `"Default"` for the primary icon.
+
+## Android
+
+- Icon names are derived from `activity-alias` names: everything after `MainActivity` in the alias class name.
+- The icon switch is **deferred until the app is backgrounded** for a smoother UX.
+- The library waits if sign-in, OAuth, or other overlay activities are in the foreground.
+
+## Naming cheat sheet
+
+| Platform | How names are defined | Example `setIcon()` argument |
+| --- | --- | --- |
+| iOS | Key in `CFBundleAlternateIcons` / `.appiconset` folder | `AlternativeIcon` |
+| Android | Suffix after `MainActivity` in alias | `AlternativeIcon` |
+| Both | Primary icon | `Default` |
