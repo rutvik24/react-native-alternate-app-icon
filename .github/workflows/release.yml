@@ -19,6 +19,7 @@ jobs:
       issues: write
       pull-requests: write
       id-token: write
+      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -53,3 +54,13 @@ jobs:
           GIT_COMMITTER_NAME: ${{ github.actor }}
           GIT_COMMITTER_EMAIL: '${{ github.actor }}@users.noreply.github.com'
         run: bun release
+
+      - name: Publish to GitHub Packages
+        if: success()
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" > .npmrc
+          # Temporarily scope the package name for GitHub Packages
+          node -e "const fs=require('fs'); const p=JSON.parse(fs.readFileSync('package.json', 'utf8')); p.name='@rutvik24/react-native-alternate-app-icon'; fs.writeFileSync('package.json', JSON.stringify(p, null, 2));"
+          npm publish --registry=https://npm.pkg.github.com || echo "Already published or failed to publish to GitHub Packages"

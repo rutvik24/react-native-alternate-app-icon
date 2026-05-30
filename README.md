@@ -38,7 +38,7 @@ bun add react-native-alternate-app-icon react-native-nitro-modules
 For iOS, install CocoaPods dependencies:
 
 ```bash
-cd ios && pod install
+bundle exec pod install --project-directory="ios"                                                                                                                                                                
 ```
 
 ---
