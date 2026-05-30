@@ -37,6 +37,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org/'
+
       - name: Setup Bun.js
         uses: oven-sh/setup-bun@v2
         with:
@@ -74,14 +80,20 @@ jobs:
             git config user.name "${{ github.actor }}"
             git config user.email "${{ github.actor }}@users.noreply.github.com"
             
-            # Update version in package.json and create git tag
-            npm version ${{ github.event.inputs.version }} -m "chore(release): %s"
+            # Update version in package.json (don't create tag yet)
+            npm version ${{ github.event.inputs.version }} --no-git-tag-version
+            
+            # Publish to npm with the specified tag and OIDC provenance
+            # We publish first so we don't tag if publish fails
+            npm publish --tag ${{ github.event.inputs.tag }} --provenance --access public
+            
+            # If publish succeeded, commit and tag
+            git add package.json
+            git commit -m "chore(release): ${{ github.event.inputs.version }}"
+            git tag v${{ github.event.inputs.version }}
             
             # Push the commit and the tag
             git push origin HEAD --tags
-            
-            # Publish to npm with the specified tag
-            npm publish --tag ${{ github.event.inputs.tag }} --provenance
             
             # Create GitHub Release
             gh release create v${{ github.event.inputs.version }} --title "v${{ github.event.inputs.version }}" --generate-notes
