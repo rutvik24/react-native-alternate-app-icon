@@ -20,21 +20,7 @@ class HybridAlternateAppIcon : HybridAlternateAppIconSpec() {
         NitroModules.applicationContext
           ?: throw Error("ACTIVITY_NOT_FOUND: React Native context is not available.")
 
-      val activity = context.currentActivity
-        ?: throw Error("ACTIVITY_NOT_FOUND: Activity was not found")
-
-      val activityName = activity.componentName.className
-
-      if (activityName.endsWith(MAIN_ACTIVITY_BASE_NAME)) {
-        return@async "Default"
-      }
-
-      val activityNameSplit = activityName.split("MainActivity").toTypedArray()
-      if (activityNameSplit.size != 2) {
-        throw Error("ANDROID:UNEXPECTED_COMPONENT_CLASS: ${AppIconChangerEngine.componentClass}")
-      }
-
-      activityNameSplit[1]
+      resolveActiveIconName(context.packageName, context.packageManager)
     }
   }
 
@@ -184,14 +170,7 @@ class HybridAlternateAppIcon : HybridAlternateAppIconSpec() {
     }
 
     private fun getCurrentIconName(activity: Activity): String {
-      val activityName = activity.componentName.className
-
-      if (activityName.endsWith(MAIN_ACTIVITY_BASE_NAME)) {
-        return "Default"
-      }
-
-      val activityNameSplit = activityName.split("MainActivity").toTypedArray()
-      return if (activityNameSplit.size == 2) activityNameSplit[1] else "Default"
+      return iconNameFromComponentClass(activity.componentName.className, activity.packageName)
     }
 
     @Synchronized
@@ -385,5 +364,74 @@ class HybridAlternateAppIcon : HybridAlternateAppIconSpec() {
 
   companion object {
     private const val MAIN_ACTIVITY_BASE_NAME = ".MainActivity"
+
+    private fun resolveActiveIconName(
+      packageName: String,
+      packageManager: PackageManager,
+    ): String {
+      val packageInfo =
+        packageManager.getPackageInfo(
+          packageName,
+          PackageManager.GET_ACTIVITIES or PackageManager.GET_DISABLED_COMPONENTS,
+        )
+
+      var mainActivityEnabled = false
+
+      packageInfo.activities?.forEach { activityInfo ->
+        val componentName = ComponentName(packageName, activityInfo.name)
+        if (!isComponentEnabled(packageManager, componentName, activityInfo.enabled)) {
+          return@forEach
+        }
+
+        if (activityInfo.targetActivity != null) {
+          return iconNameFromComponentClass(activityInfo.name, packageName)
+        }
+
+        if (activityInfo.name.endsWith(MAIN_ACTIVITY_BASE_NAME)) {
+          mainActivityEnabled = true
+        }
+      }
+
+      if (mainActivityEnabled) {
+        return "Default"
+      }
+
+      val cachedClass = AppIconChangerEngine.componentClass
+      if (cachedClass.isNotEmpty()) {
+        return iconNameFromComponentClass(cachedClass, packageName)
+      }
+
+      throw Error("ACTIVE_ICON_NOT_FOUND: Could not determine the active app icon.")
+    }
+
+    private fun isComponentEnabled(
+      packageManager: PackageManager,
+      componentName: ComponentName,
+      manifestEnabled: Boolean,
+    ): Boolean {
+      return when (packageManager.getComponentEnabledSetting(componentName)) {
+        PackageManager.COMPONENT_ENABLED_STATE_ENABLED -> true
+        PackageManager.COMPONENT_ENABLED_STATE_DISABLED -> false
+        else -> manifestEnabled
+      }
+    }
+
+    private fun iconNameFromComponentClass(className: String, packageName: String): String {
+      if (className.endsWith(MAIN_ACTIVITY_BASE_NAME)) {
+        return "Default"
+      }
+
+      val prefix = "$packageName$MAIN_ACTIVITY_BASE_NAME"
+      if (className.startsWith(prefix)) {
+        return className.removePrefix(prefix).ifEmpty { "Default" }
+      }
+
+      val activityNameSplit = className.split("MainActivity").toTypedArray()
+      return if (activityNameSplit.size == 2) {
+        activityNameSplit[1].ifEmpty { "Default" }
+      } else {
+        "Default"
+      }
+    }
   }
 }
