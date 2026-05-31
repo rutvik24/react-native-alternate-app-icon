@@ -3,11 +3,11 @@
 ![GitHub stars](https://img.shields.io/github/stars/rutvik24/react-native-alternate-app-icon?style=social)
 [![License](https://img.shields.io/npm/l/react-native-alternate-app-icon.svg)](https://github.com/rutvik24/react-native-alternate-app-icon/blob/main/LICENSE)
 
-# React Native Alternate App Icon
+# React Native Alternate App Icon | App Icon Changer
 
-`react-native-alternate-app-icon` is a high-performance library for dynamically changing your app's icon at runtime on **iOS** and **Android**. Built with [Nitro Modules](https://nitro.margelo.com), it provides a type-safe JavaScript API backed by native Swift and Kotlin implementations.
+`react-native-alternate-app-icon` is a high-performance **App Icon Changer for React Native** that allows you to dynamically change your app's icon at runtime on **iOS** and **Android**. Built with [Nitro Modules](https://nitro.margelo.com), it provides a type-safe JavaScript API backed by native Swift and Kotlin implementations.
 
-Use it for seasonal themes, event-based branding, user personalization, or any scenario where you want to switch icons without shipping a new build.
+Use it as a **dynamic app icon changer** for seasonal themes, event-based branding, user personalization, or any scenario where you want to switch icons without shipping a new build.
 
 📖 **[Full documentation](https://rutvik24.github.io/react-native-alternate-app-icon/)** — guides, API reference, and platform setup.
 

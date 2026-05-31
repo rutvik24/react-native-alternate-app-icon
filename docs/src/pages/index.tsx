@@ -14,18 +14,21 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className={clsx('container', styles.heroContainer)}>
         <div className={styles.heroContent}>
-          <div className={styles.heroBadge}>Nitro Modules · iOS & Android</div>
-          <Heading as="h1" className={clsx('hero__title', styles.heroTitle)}>
-            {siteConfig.title}
-          </Heading>
-          <div className={styles.heroSubtitle}>
-            <p className={styles.heroSubtitleLine}>
-              Change your app icon at runtime on iOS and Android.
-            </p>
-            <span className={styles.heroSubtitleAccent}>
-              Powered by Nitro Modules
-            </span>
-          </div>
+        <div className={styles.heroBadge}>Nitro Modules · iOS & Android</div>
+        <Heading as="h1" className={clsx('hero__title', styles.heroTitle)}>
+          {siteConfig.title}
+        </Heading>
+        <div className={styles.heroSubtitle}>
+          <p className={styles.heroSubtitleLine}>
+            The high-performance <strong>App Icon Changer</strong> for React Native.
+          </p>
+          <p className={styles.heroSubtitleLine}>
+            Change your app icon at runtime on iOS and Android.
+          </p>
+          <span className={styles.heroSubtitleAccent}>
+            Powered by Nitro Modules
+          </span>
+        </div>
           <div className={styles.buttons}>
             <Link
               className="button button--secondary button--lg"

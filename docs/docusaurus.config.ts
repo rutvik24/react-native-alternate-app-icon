@@ -6,7 +6,8 @@ const repoUrl = 'https://github.com/rutvik24/react-native-alternate-app-icon'
 
 const config: Config = {
   title: 'React Native Alternate App Icon',
-  tagline: 'Runtime app icon switching for React Native on iOS and Android.',
+  tagline:
+    'The most powerful App Icon Changer for React Native. Change your app icon dynamically at runtime on iOS and Android.',
   favicon: 'img/favicon.svg',
 
   future: {
@@ -48,7 +49,25 @@ const config: Config = {
       {
         name: 'keywords',
         content:
-          'react native, app icon, dynamic icon, nitro modules, ios, android',
+          'react native, app icon changer, change app icon, dynamic app icon, alternate app icon, nitro modules, ios, android, runtime icon switch',
+      },
+      {
+        name: 'description',
+        content:
+          'Best React Native library to change app icon at runtime. High-performance, Nitro-powered, supports iOS and Android. Dynamic app icon changer.',
+      },
+      {
+        property: 'og:title',
+        content: 'React Native Alternate App Icon | App Icon Changer',
+      },
+      {
+        property: 'og:description',
+        content:
+          'Dynamically change your React Native app icon on iOS and Android at runtime with high performance.',
+      },
+      {
+        name: 'twitter:card',
+        content: 'summary_large_image',
       },
     ],
     colorMode: {
