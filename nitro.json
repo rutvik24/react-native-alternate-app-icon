@@ -1,24 +1,24 @@
 {
   "$schema": "https://nitro.margelo.com/nitro.schema.json",
-  "cxxNamespace": [
-    "alternateappicon"
-  ],
+  "cxxNamespace": ["alternateappicon"],
   "ios": {
     "iosModuleName": "AlternateAppIcon"
   },
   "android": {
-    "androidNamespace": [
-      "alternateappicon"
-    ],
+    "androidNamespace": ["alternateappicon"],
     "androidCxxLibName": "AlternateAppIcon"
   },
   "autolinking": {
     "AlternateAppIcon": {
-      "swift": "HybridAlternateAppIcon",
-      "kotlin": "HybridAlternateAppIcon"
+      "ios": {
+        "language": "swift",
+        "implementationClassName": "HybridAlternateAppIcon"
+      },
+      "android": {
+        "language": "kotlin",
+        "implementationClassName": "HybridAlternateAppIcon"
+      }
     }
   },
-  "ignorePaths": [
-    "**/node_modules"
-  ]
+  "ignorePaths": ["**/node_modules"]
 }

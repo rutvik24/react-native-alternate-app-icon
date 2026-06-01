@@ -9,27 +9,32 @@ title: Compatibility
 
 This library’s published native code is built and tested against the versions below. Match them in your app for a reliable install.
 
-| Package | Version | Notes |
-| --- | --- | --- |
-| `react-native-alternate-app-icon` | **0.8.0+** | Install the latest from npm unless you are pinned to an older release |
-| `react-native-nitro-modules` | **0.32.0** | **Required** peer dependency — pin this exact version |
-| React Native | **0.76.0+** | New Architecture (Fabric / TurboModules) |
-| Node.js | **18.0.0+** | For CLI, Metro, and local tooling |
+| Package                           | Version     | Notes                                    |
+| --------------------------------- | ----------- | ---------------------------------------- |
+| `react-native-alternate-app-icon` | **1.0.0+**  | Current release — uses Nitro **0.35.x**  |
+| `react-native-alternate-app-icon` | **0.8.0**   | Legacy release — uses Nitro **0.32.x**   |
+| `react-native-nitro-modules`      | **0.35.9**  | **Required** for 1.0.0+                  |
+| `react-native-nitro-modules`      | **0.32.0**  | **Required** for 0.9.x                   |
+| React Native                      | **0.76.0+** | New Architecture (Fabric / TurboModules) |
+| Node.js                           | **18.0.0+** | For CLI, Metro, and local tooling        |
 
-The example app in the repo uses **React Native 0.84.1** with **Nitro Modules 0.32.0**.
+The example app in the repo uses **React Native 0.84.1** with **Nitro Modules 0.35.9**.
 
 ## Nitro toolchain
 
 Native bindings under `nitrogen/generated/` are produced with:
 
-| Tool | Version |
-| --- | --- |
-| [Nitrogen](https://github.com/mrousavy/nitro) | **0.32.0** |
-| `react-native-nitro-modules` (codegen target) | **0.32.0** |
+| Tool                                          | Version                                   |
+| --------------------------------------------- | ----------------------------------------- |
+| [Nitrogen](https://github.com/mrousavy/nitro) | **0.35.9** (v1.0.0) / **0.32.0** (v0.9.0) |
+| `react-native-nitro-modules` (codegen target) | **0.35.9** (v1.0.0) / **0.32.0** (v0.9.0) |
 
-Nitrogen and Nitro Modules releases are paired. This package targets the **0.32.x** APIs (for example `HybridObject.updateNative` on Android). A newer Nitrogen (e.g. **0.35.x**) emits code for Nitro **0.35+** (`HybridObject.CxxPart`) and will not compile against **0.32.0**.
+Nitrogen and Nitro Modules releases are paired.
 
-If you maintain a fork or run `bun run codegen` locally, keep **both** `nitrogen` and `react-native-nitro-modules` on **0.32.0** until the library officially supports a newer Nitro line.
+- **For v1.0.0+**: Uses the **0.35.x** line.
+- **For v0.9.x**: Uses the **0.32.x** line.
+
+If you maintain a fork or run `bun run codegen` locally, ensure you match the version used by the library version you are on.
 
 ## Architecture support
 
@@ -37,10 +42,10 @@ The library is built with Nitro Modules and supports React Native's **New Archit
 
 ## Platform minimums
 
-| Platform | Notes |
-| --- | --- |
-| **iOS** | iOS **10.3+** for alternate icons; **test on a physical device** — some recent simulators do not show the post-change alert reliably |
-| **Android** | Standard launcher icon aliases via `activity-alias` |
+| Platform    | Notes                                                                                                                                |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| **iOS**     | iOS **10.3+** for alternate icons; **test on a physical device** — some recent simulators do not show the post-change alert reliably |
+| **Android** | Standard launcher icon aliases via `activity-alias`                                                                                  |
 
 ## Peer dependencies
 
@@ -49,8 +54,8 @@ Your app `package.json` should include:
 ```json
 {
   "dependencies": {
-    "react-native-alternate-app-icon": "^0.8.0",
-    "react-native-nitro-modules": "0.32.0"
+    "react-native-alternate-app-icon": "^1.0.0",
+    "react-native-nitro-modules": "0.35.9"
   }
 }
 ```
@@ -58,9 +63,9 @@ Your app `package.json` should include:
 Use your package manager’s install command with an explicit Nitro version:
 
 ```bash
-bun add react-native-alternate-app-icon react-native-nitro-modules@0.32.0
+bun add react-native-alternate-app-icon react-native-nitro-modules
 ```
 
 ## Upgrading Nitro later
 
-When this library publishes support for a newer `react-native-nitro-modules` release, upgrade **both** packages together, reinstall pods, and rebuild native apps. Do not bump only Nitro Modules while staying on a release that was built for **0.32.x**.
+When this library publishes support for a newer `react-native-nitro-modules` release, upgrade **both** packages together, reinstall pods, and rebuild native apps. Do not bump only Nitro Modules while staying on a release that was built for **0.35.x**.

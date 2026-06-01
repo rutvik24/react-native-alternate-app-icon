@@ -1,5 +1,5 @@
 PODS:
-  - AlternateAppIcon (0.9.0):
+  - AlternateAppIcon (1.0.0):
     - hermes-engine
     - NitroModules
     - RCTRequired
@@ -27,7 +27,7 @@ PODS:
   - hermes-engine (250829098.0.9):
     - hermes-engine/Pre-built (= 250829098.0.9)
   - hermes-engine/Pre-built (250829098.0.9)
-  - NitroModules (0.32.0):
+  - NitroModules (0.35.9):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -2138,10 +2138,10 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  AlternateAppIcon: 67ec9e6338e8c9d4fb559843c13a949159c07a5a
+  AlternateAppIcon: c9d7a3cf397af4b7239d86f3fc207ce8a2f10d31
   FBLazyVector: e97c19a5a442429d1988f182a1940fb08df514da
   hermes-engine: 586e5e15a3bd272d87ab3d33e5bed35c67bba2ca
-  NitroModules: 948745c245b2b3c3689dab3faf5a59e6b8903c64
+  NitroModules: 7b5ab273abd90ab15d69f4ac1272e34e368051af
   RCTDeprecation: af44b104091a34482596cd9bd7e8d90c4e9b4bd7
   RCTRequired: bb77b070f75f53398ce43c0aaaa58337cebe2bf6
   RCTSwiftUI: afc0a0a635860da1040a0b894bfd529da06d7810
