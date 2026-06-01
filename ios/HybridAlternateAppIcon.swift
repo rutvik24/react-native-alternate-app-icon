@@ -7,7 +7,7 @@ class HybridAlternateAppIcon: HybridAlternateAppIconSpec {
     let promise = Promise<String>()
     DispatchQueue.main.async {
       if !UIApplication.shared.supportsAlternateIcons {
-        promise.reject(withError: RuntimeError("iOS: Alternate icons are not supported on this device."))
+        promise.reject(withError: RuntimeError.error(withMessage: "iOS: Alternate icons are not supported on this device."))
         return
       }
 
@@ -21,7 +21,7 @@ class HybridAlternateAppIcon: HybridAlternateAppIconSpec {
     let promise = Promise<[String]>()
     DispatchQueue.main.async {
       if !UIApplication.shared.supportsAlternateIcons {
-        promise.reject(withError: RuntimeError("iOS: Alternate icons are not supported on this device."))
+        promise.reject(withError: RuntimeError.error(withMessage: "iOS: Alternate icons are not supported on this device."))
         return
       }
 
@@ -45,18 +45,18 @@ class HybridAlternateAppIcon: HybridAlternateAppIconSpec {
     let promise = Promise<String>()
     DispatchQueue.main.async {
       if !UIApplication.shared.supportsAlternateIcons {
-        promise.reject(withError: RuntimeError("iOS: Alternate icons are not supported on this device."))
+        promise.reject(withError: RuntimeError.error(withMessage: "iOS: Alternate icons are not supported on this device."))
         return
       }
 
       if iconName.isEmpty {
-        promise.reject(withError: RuntimeError("Invalid iconName: iconName cannot be empty."))
+        promise.reject(withError: RuntimeError.error(withMessage: "Invalid iconName: iconName cannot be empty."))
         return
       }
 
       let currentIcon = UIApplication.shared.alternateIconName
       if iconName == (currentIcon ?? "Default") {
-        promise.reject(withError: RuntimeError("iOS: The specified icon is already in use."))
+        promise.reject(withError: RuntimeError.error(withMessage: "iOS: The specified icon is already in use."))
         return
       }
 
@@ -77,7 +77,7 @@ class HybridAlternateAppIcon: HybridAlternateAppIconSpec {
     let promise = Promise<String>()
     DispatchQueue.main.async {
       if !UIApplication.shared.supportsAlternateIcons {
-        promise.reject(withError: RuntimeError("iOS: Alternate icons are not supported on this device."))
+        promise.reject(withError: RuntimeError.error(withMessage: "iOS: Alternate icons are not supported on this device."))
         return
       }
 

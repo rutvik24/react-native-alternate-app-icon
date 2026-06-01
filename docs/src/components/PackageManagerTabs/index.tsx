@@ -39,7 +39,7 @@ export default function PackageManagerTabs({
 }
 
 const LIBRARY_PACKAGES =
-  'react-native-alternate-app-icon react-native-nitro-modules';
+  'react-native-alternate-app-icon react-native-nitro-modules@0.32.0';
 
 export function InstallPackages() {
   return (

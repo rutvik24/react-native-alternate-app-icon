@@ -5,13 +5,31 @@ title: Compatibility
 
 # Compatibility
 
-## Requirements
+## Version matrix
 
-| Requirement | Version |
+This library’s published native code is built and tested against the versions below. Match them in your app for a reliable install.
+
+| Package | Version | Notes |
+| --- | --- | --- |
+| `react-native-alternate-app-icon` | **0.8.0+** | Install the latest from npm unless you are pinned to an older release |
+| `react-native-nitro-modules` | **0.32.0** | **Required** peer dependency — pin this exact version |
+| React Native | **0.76.0+** | New Architecture (Fabric / TurboModules) |
+| Node.js | **18.0.0+** | For CLI, Metro, and local tooling |
+
+The example app in the repo uses **React Native 0.84.1** with **Nitro Modules 0.32.0**.
+
+## Nitro toolchain
+
+Native bindings under `nitrogen/generated/` are produced with:
+
+| Tool | Version |
 | --- | --- |
-| React Native | **v0.76.0** or higher |
-| Node.js | **18.0.0** or higher |
-| `react-native-nitro-modules` | Required peer dependency |
+| [Nitrogen](https://github.com/mrousavy/nitro) | **0.32.0** |
+| `react-native-nitro-modules` (codegen target) | **0.32.0** |
+
+Nitrogen and Nitro Modules releases are paired. This package targets the **0.32.x** APIs (for example `HybridObject.updateNative` on Android). A newer Nitrogen (e.g. **0.35.x**) emits code for Nitro **0.35+** (`HybridObject.CxxPart`) and will not compile against **0.32.0**.
+
+If you maintain a fork or run `bun run codegen` locally, keep **both** `nitrogen` and `react-native-nitro-modules` on **0.32.0** until the library officially supports a newer Nitro line.
 
 ## Architecture support
 
@@ -26,12 +44,23 @@ The library is built with Nitro Modules and supports React Native's **New Archit
 
 ## Peer dependencies
 
-Your app must include:
+Your app `package.json` should include:
 
 ```json
 {
-  "react-native-nitro-modules": "*"
+  "dependencies": {
+    "react-native-alternate-app-icon": "^0.8.0",
+    "react-native-nitro-modules": "0.32.0"
+  }
 }
 ```
 
-Pin versions to match your Nitro / Nitrogen toolchain if you use codegen in your own native modules.
+Use your package manager’s install command with an explicit Nitro version:
+
+```bash
+bun add react-native-alternate-app-icon react-native-nitro-modules@0.32.0
+```
+
+## Upgrading Nitro later
+
+When this library publishes support for a newer `react-native-nitro-modules` release, upgrade **both** packages together, reinstall pods, and rebuild native apps. Do not bump only Nitro Modules while staying on a release that was built for **0.32.x**.

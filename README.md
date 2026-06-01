@@ -21,18 +21,23 @@ Use it as a **dynamic app icon changer** for seasonal themes, event-based brandi
 
 ## Compatibility
 
-| Requirement                | Version                  |
-| -------------------------- | ------------------------ |
-| React Native               | v0.76.0 or higher        |
-| Node.js                    | 18.0.0 or higher         |
-| react-native-nitro-modules | Required peer dependency |
+| Requirement | Version |
+| --- | --- |
+| `react-native-alternate-app-icon` | **0.8.0+** (latest recommended) |
+| `react-native-nitro-modules` | **0.32.0** (peer dependency; pin this version) |
+| React Native | **0.76.0** or higher |
+| Node.js | **18.0.0** or higher |
+
+Native bindings in this library are generated with [Nitrogen](https://github.com/mrousavy/nitro) **0.32.0** for the Nitro Modules **0.32.x** Android/iOS APIs. Use a matching `react-native-nitro-modules` version in your app—mixing Nitro **0.35+** with a build targeting **0.32.x** can cause native compile errors.
+
+See the [compatibility guide](https://rutvik24.github.io/react-native-alternate-app-icon/docs/getting-started/compatibility) for details.
 
 ## Installation
 
-Install the package along with its peer dependency:
+Install the package along with its peer dependency (pin Nitro to **0.32.0**):
 
 ```bash
-bun add react-native-alternate-app-icon react-native-nitro-modules
+bun add react-native-alternate-app-icon react-native-nitro-modules@0.32.0
 ```
 
 For iOS, install CocoaPods dependencies:
