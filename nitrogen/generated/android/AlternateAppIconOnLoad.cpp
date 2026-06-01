@@ -16,6 +16,7 @@
 #include <NitroModules/HybridObjectRegistry.hpp>
 
 #include "JHybridAlternateAppIconSpec.hpp"
+#include <NitroModules/DefaultConstructableObject.hpp>
 
 namespace margelo::nitro::alternateappicon {
 
@@ -29,7 +30,14 @@ int initialize(JavaVM* vm) {
     margelo::nitro::alternateappicon::JHybridAlternateAppIconSpec::registerNatives();
 
     // Register Nitro Hybrid Objects
-    
+    HybridObjectRegistry::registerHybridObjectConstructor(
+      "AlternateAppIcon",
+      []() -> std::shared_ptr<HybridObject> {
+        static DefaultConstructableObject<JHybridAlternateAppIconSpec::javaobject> object("com/alternateappicon/HybridAlternateAppIcon");
+        auto instance = object.create();
+        return instance->cthis()->shared();
+      }
+    );
   });
 }
 

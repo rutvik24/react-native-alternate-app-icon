@@ -14,14 +14,8 @@
   },
   "autolinking": {
     "AlternateAppIcon": {
-      "ios": {
-        "language": "swift",
-        "implementationClassName": "HybridAlternateAppIcon"
-      },
-      "android": {
-        "language": "kotlin",
-        "implementationClassName": "HybridAlternateAppIcon"
-      }
+      "swift": "HybridAlternateAppIcon",
+      "kotlin": "HybridAlternateAppIcon"
     }
   },
   "ignorePaths": [
