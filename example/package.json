@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios --simulator='iPhone 16'",
+    "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start --reset-cache",
     "test": "jest",
@@ -15,7 +15,7 @@
     "react-native": "0.84.1",
     "@react-native/new-app-screen": "0.84.1",
     "react-native-safe-area-context": "^5.5.2",
-    "react-native-nitro-modules": "0.35.9"
+    "react-native-nitro-modules": "0.32.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
