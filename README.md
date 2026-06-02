@@ -1,6 +1,6 @@
 [![npm version](https://img.shields.io/npm/v/react-native-alternate-app-icon.svg)](https://www.npmjs.com/package/react-native-alternate-app-icon)
 [![Downloads](https://img.shields.io/npm/dm/react-native-alternate-app-icon.svg)](https://www.npmjs.com/package/react-native-alternate-app-icon)
-![GitHub stars](https://img.shields.io/github/stars/rutvik24/react-native-alternate-app-icon?style=social)
+[![GitHub stars](https://img.shields.io/github/stars/rutvik24/react-native-alternate-app-icon?style=social)](https://github.com/rutvik24/react-native-alternate-app-icon)
 [![License](https://img.shields.io/npm/l/react-native-alternate-app-icon.svg)](https://github.com/rutvik24/react-native-alternate-app-icon/blob/main/LICENSE)
 
 # React Native Alternate App Icon | App Icon Changer
