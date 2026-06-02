@@ -141,6 +141,7 @@ const config: Config = {
               label: 'Skill source (GitHub)',
               href: `${repoUrl}/tree/main/skills/react-native-alternate-app-icon`,
             },
+            { label: 'List on skills.sh', to: '/docs/agents/skills-sh' },
           ],
         },
         {

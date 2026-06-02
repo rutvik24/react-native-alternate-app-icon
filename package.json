@@ -51,6 +51,7 @@
     "app.plugin.js",
     "*.podspec",
     "skills",
+    "skills.sh.json",
     "AGENTS.md"
   ],
   "workspaces": [
