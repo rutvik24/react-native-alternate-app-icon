@@ -1,0 +1,138 @@
+---
+sidebar_position: 3
+title: Rules & workflow
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Project rules & workflow
+
+How to combine the **installable skill** with optional **project rules** so any coding agent (Cursor, Claude Code, Copilot, Windsurf, etc.) stays aligned with this library.
+
+## 1. Install the skill
+
+Install once per machine or per repo — see **[Install the agent skill](/docs/agents/skill)** for your provider (`-a cursor`, `-a claude-code`, `-a github-copilot`, …).
+
+```bash
+npx skills add rutvik24/react-native-alternate-app-icon -g -y
+```
+
+Restart your editor or agent after install.
+
+## 2. Optional project rules
+
+Skills load automatically when relevant. **Project rules** add always-on hints for your repo (globs, stack, conventions). Use one or more of the formats below.
+
+### Shared rule content
+
+Copy these bullets into whichever file your tool supports:
+
+```md
+- Use skill `react-native-alternate-app-icon` for setup, API, and troubleshooting.
+- Package: `react-native-alternate-app-icon` + peer `react-native-nitro-modules@0.32.0`.
+- iOS: icon name must match `CFBundleAlternateIcons` / `.appiconset` folder; system alert is expected.
+- Android: icon name = suffix after `MainActivity` in `activity-alias`; switch applies on background.
+- Test icon changes on a physical iOS device when Simulator does not show the alert.
+- After native dependency or manifest changes: rebuild the app (Metro reload is not enough).
+- iOS pods: `bundle exec pod install --project-directory="ios"` from app root.
+```
+
+<Tabs groupId="agent-rules">
+<TabItem value="agents-md" label="AGENTS.md" default>
+
+**Works with:** Cursor, Claude Code, Copilot, Codex, and other agents that read repo-root agent files.
+
+Add or extend **`AGENTS.md`** at your app root:
+
+```md
+# App agent instructions
+
+## Alternate app icons
+
+- Use skill `react-native-alternate-app-icon` for setup and API.
+- Pin `react-native-nitro-modules@0.32.0`.
+- Android: background app to see launcher icon change.
+```
+
+This library’s own repo uses [`AGENTS.md`](https://github.com/rutvik24/react-native-alternate-app-icon/blob/main/AGENTS.md) for contributors.
+
+</TabItem>
+<TabItem value="cursor" label="Cursor">
+
+**Path:** `.cursor/rules/alternate-app-icon.mdc`
+
+```md
+---
+description: Runtime app icons with react-native-alternate-app-icon
+globs: **/*.{ts,tsx,js,jsx}
+---
+
+- Use skill `react-native-alternate-app-icon` for setup and API.
+- Pin `react-native-nitro-modules@0.32.0`.
+- iOS: CFBundleAlternateIcons keys must match setIcon() names.
+- Android: activity-alias naming; icon updates when app is backgrounded.
+```
+
+Docs: [Cursor Skills](https://cursor.com/docs/context/skills) · Install: `-a cursor` on the [skill page](/docs/agents/skill).
+
+</TabItem>
+<TabItem value="claude" label="Claude Code">
+
+**Path:** `CLAUDE.md` in the project root (or a scoped section in an existing file).
+
+```md
+## Alternate app icons (react-native-alternate-app-icon)
+
+Follow the `react-native-alternate-app-icon` skill. Pin Nitro Modules 0.32.0.
+Configure iOS plist and Android activity-alias before calling setIcon().
+```
+
+Install skill with `-a claude-code`. Docs: [Claude Code Skills](https://code.claude.com/docs/en/skills).
+
+</TabItem>
+<TabItem value="copilot" label="GitHub Copilot">
+
+**Path:** `.github/copilot-instructions.md` (repository-wide) or custom instructions in your IDE.
+
+```md
+When working on alternate app icons, use the react-native-alternate-app-icon agent skill.
+RN ≥ 0.76, react-native-nitro-modules@0.32.0 required.
+```
+
+Install skill with `-a github-copilot`. Docs: [Copilot Agent Skills](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills).
+
+</TabItem>
+<TabItem value="windsurf" label="Windsurf / others">
+
+**Windsurf:** install with `-a windsurf`; skills live in `.windsurf/skills/` or `~/.codeium/windsurf/skills/`.
+
+**Codex, Cline, Continue, OpenCode, Roo Code, …:** same shared bullets in `AGENTS.md` or your tool’s instructions file — see [Install by AI provider](/docs/agents/skill#install-by-ai-provider).
+
+</TabItem>
+</Tabs>
+
+## 3. Invoke in chat
+
+After the skill is installed, ask directly:
+
+```text
+Add alternate app icons to this React Native app for iOS and Android.
+Use the react-native-alternate-app-icon skill and wire a settings screen.
+```
+
+Or name the package — the skill description should trigger automatic use:
+
+```text
+Use the react-native-alternate-app-icon skill to fix setIcon failing on Android.
+```
+
+More copy-paste prompts: **[Prompt templates](/docs/agents/prompts)**.
+
+## 4. After the agent edits native code
+
+```bash
+bundle exec pod install --project-directory="ios"
+```
+
+Then rebuild and run the app — **Metro reload alone is not enough** for new native modules or manifest changes.

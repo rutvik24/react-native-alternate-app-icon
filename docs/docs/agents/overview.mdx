@@ -1,0 +1,54 @@
+---
+sidebar_position: 1
+title: For AI agents
+---
+
+# For AI agents
+
+The recommended way to teach coding agents about this library is the **installable agent skill** — not ad-hoc prompts or pasted README chunks.
+
+## Install the skill
+
+import SkillAgentInstall from '@site/src/components/SkillAgentInstall';
+
+<SkillAgentInstall />
+
+**One provider** (examples):
+
+```bash
+# Cursor
+npx skills add rutvik24/react-native-alternate-app-icon -a cursor -g -y
+
+# Claude Code
+npx skills add rutvik24/react-native-alternate-app-icon -a claude-code -g -y
+
+# GitHub Copilot
+npx skills add rutvik24/react-native-alternate-app-icon -a github-copilot -g -y
+```
+
+Full instructions for **Cursor, Claude Code, Copilot, Codex, Windsurf, Gemini CLI, Cline, Continue, OpenCode, Roo Code, Junie, Kiro, Amp**, and 50+ more: **[Install the agent skill](/docs/agents/skill)**.
+
+## What you get
+
+- Correct **iOS** setup (`CFBundleAlternateIcons`, asset catalog names)
+- Correct **Android** setup (`activity-alias`, mipmap names, background switch behavior)
+- **`react-native-nitro-modules@0.32.0`** peer version pinning
+- API usage and snippets in bundled `reference.md` and `examples.md`
+
+## Other resources
+
+| Resource | Use |
+| -------- | --- |
+| [Install skill](/docs/agents/skill) | Per-provider install commands and **Add to …** buttons |
+| [Rules & workflow](/docs/agents/rules) | `AGENTS.md`, Cursor rules, Copilot instructions |
+| [Prompt templates](/docs/agents/prompts) | Starter messages after the skill is installed |
+| [AGENTS.md](https://github.com/rutvik24/react-native-alternate-app-icon/blob/main/AGENTS.md) | Contributing to this repo |
+| [Documentation](/docs/intro) | Full human-readable guides |
+
+## Common agent mistakes
+
+- Mismatched icon **names** between JS and native config (iOS plist key vs Android alias suffix)
+- Expecting **instant** icon change on Android while the app stays foregrounded
+- Testing only on **iOS Simulator** when the system alert fails to appear
+- Skipping **native rebuild** after adding the package or changing manifests
+- Using a **mismatched** `react-native-nitro-modules` version (pin **0.32.0**)

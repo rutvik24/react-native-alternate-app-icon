@@ -49,7 +49,9 @@
     "android/src",
     "ios",
     "app.plugin.js",
-    "*.podspec"
+    "*.podspec",
+    "skills",
+    "AGENTS.md"
   ],
   "workspaces": [
     "example"

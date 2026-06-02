@@ -1,0 +1,70 @@
+---
+sidebar_position: 4
+title: Prompt templates
+---
+
+# Prompt templates
+
+Install the skill first:
+
+```bash
+npx skills add rutvik24/react-native-alternate-app-icon -g -y
+```
+
+Then use these prompts in any agent with the skill installed. Optional repo rules: [Rules & workflow](/docs/agents/rules).
+
+## Add to bare React Native
+
+```text
+Add react-native-alternate-app-icon to this React Native app.
+
+Use the react-native-alternate-app-icon skill.
+Configure iOS asset catalog + Info.plist and Android activity-alias.
+Add a simple API call to switch to "Holiday" icon.
+```
+
+## Add iOS alternate icons only
+
+```text
+Set up iOS alternate app icons with react-native-alternate-app-icon.
+
+Use the react-native-alternate-app-icon skill.
+Document CFBundleAlternateIcons and test on a real device.
+```
+
+## Add Android alternate icons only
+
+```text
+Set up Android alternate launcher icons with react-native-alternate-app-icon.
+
+Use the react-native-alternate-app-icon skill.
+activity-alias entries and mipmaps for icon name "Seasonal".
+Explain that the icon updates when the app is backgrounded.
+```
+
+## Settings / picker UI
+
+```text
+Build a settings screen that lists available icons and calls setIcon().
+
+Use the react-native-alternate-app-icon skill.
+Use getAllAlternativeIcons() and getActiveIcon().
+```
+
+## Debug icon not changing
+
+```text
+setIcon() does not change the launcher icon on iOS/Android.
+
+Use the react-native-alternate-app-icon skill.
+Verify native names match JS, plist, and manifest.
+```
+
+## Audit existing integration
+
+```text
+Audit my alternate app icon setup against react-native-alternate-app-icon.
+
+Use the react-native-alternate-app-icon skill.
+List gaps and fix them.
+```

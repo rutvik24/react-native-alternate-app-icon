@@ -90,6 +90,17 @@ const config: Config = {
           label: 'Docs',
         },
         {
+          type: 'docSidebar',
+          sidebarId: 'agentsSidebar',
+          position: 'left',
+          label: 'Agents',
+        },
+        {
+          label: 'Agent skill',
+          to: '/docs/agents/skill',
+          position: 'right',
+        },
+        {
           href: 'https://www.npmjs.com/package/react-native-alternate-app-icon',
           label: 'npm',
           position: 'right',
@@ -118,6 +129,18 @@ const config: Config = {
             { label: 'iOS', to: '/docs/ios/setup' },
             { label: 'Android', to: '/docs/android/setup' },
             { label: 'Platform notes', to: '/docs/guides/platform-notes' },
+          ],
+        },
+        {
+          title: 'Agents',
+          items: [
+            { label: 'For AI agents', to: '/docs/agents/overview' },
+            { label: 'Install agent skill', to: '/docs/agents/skill' },
+            { label: 'Rules & workflow', to: '/docs/agents/rules' },
+            {
+              label: 'Skill source (GitHub)',
+              href: `${repoUrl}/tree/main/skills/react-native-alternate-app-icon`,
+            },
           ],
         },
         {

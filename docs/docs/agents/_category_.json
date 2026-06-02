@@ -1,0 +1,9 @@
+{
+  "label": "For AI agents",
+  "position": 6,
+  "link": {
+    "type": "generated-index",
+    "title": "For AI agents",
+    "description": "Install the agent skill so Cursor, Claude Code, Copilot, and other coding agents set up alternate app icons correctly."
+  }
+}

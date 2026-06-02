@@ -1,5 +1,6 @@
 import type {ReactNode} from 'react';
 import clsx from 'clsx';
+import Link from '@docusaurus/Link';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
@@ -41,11 +42,22 @@ const FeatureList: FeatureItem[] = [
       </>
     ),
   },
+  {
+    title: 'Agent skill',
+    icon: '🤖',
+    description: (
+      <>
+        Installable skill for Cursor, Claude Code, Copilot, and 50+ agents —
+        correct native setup without pasting docs.{' '}
+        <Link to="/docs/agents/skill">Add to Cursor →</Link>
+      </>
+    ),
+  },
 ];
 
 function Feature({title, icon, description}: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx('col col--4', 'margin-bottom--lg')}>
       <div className={clsx('feature-card', styles.featureCard)}>
         <div className="feature-icon">{icon}</div>
         <Heading as="h3">{title}</Heading>

@@ -11,6 +11,16 @@ Use it as a **dynamic app icon changer** for seasonal themes, event-based brandi
 
 📖 **[Full documentation](https://rutvik24.github.io/react-native-alternate-app-icon/)** — guides, API reference, and platform setup.
 
+## For AI agents (Cursor, Claude Code, Copilot, …)
+
+Install the agent skill so coding agents follow correct iOS/Android setup and API usage:
+
+```bash
+npx skills add rutvik24/react-native-alternate-app-icon -g -y
+```
+
+Docs: [For AI agents](https://rutvik24.github.io/react-native-alternate-app-icon/docs/agents/overview) · [Install skill](https://rutvik24.github.io/react-native-alternate-app-icon/docs/agents/skill) (per-provider **Add to Cursor** and other agents)
+
 ## Key Features
 
 - **Alternate App Icon Management** — Change your app icon at runtime on iOS and Android.
