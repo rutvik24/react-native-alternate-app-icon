@@ -1,0 +1,10 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "groupings": [
+    {
+      "title": "React Native",
+      "description": "Runtime alternate app icons on iOS and Android with Nitro Modules.",
+      "skills": ["react-native-alternate-app-icon"]
+    }
+  ]
+}
