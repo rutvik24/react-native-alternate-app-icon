@@ -8,3 +8,6 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # Add any project specific keep options here:
+#
+# react-native-alternate-app-icon merges consumer-rules.pro from its AAR automatically.
+# See https://rutvik24.github.io/react-native-alternate-app-icon/docs/android/proguard

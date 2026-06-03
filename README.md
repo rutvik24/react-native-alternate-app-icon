@@ -245,6 +245,14 @@ Add `activity-alias` entries for each icon variant. The suffix after `MainActivi
 
 > **Note:** On Android, icon changes are applied when the app moves to the background. The library handles this automatically and defers the switch if OAuth or other overlay activities are active.
 
+### ProGuard / R8 (release builds)
+
+The library ships **consumer ProGuard rules** in its AAR (`android/consumer-rules.pro`). When you enable `minifyEnabled true` for release, those rules merge automatically — you do not need to copy Nitro keep rules into your app.
+
+Use `proguard-android-optimize.txt` and avoid redundant `-keep` rules for `Activity` or `activity-alias` (manifest components are kept by R8).
+
+Full guide: [ProGuard / R8](https://rutvik24.github.io/react-native-alternate-app-icon/docs/android/proguard)
+
 ### Demo
 
 <p align="center">

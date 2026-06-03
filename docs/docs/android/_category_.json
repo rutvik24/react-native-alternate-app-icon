@@ -3,6 +3,6 @@
   "position": 4,
   "link": {
     "type": "generated-index",
-    "description": "Configure activity aliases and launcher mipmaps."
+    "description": "Configure activity aliases, launcher mipmaps, and R8/ProGuard."
   }
 }

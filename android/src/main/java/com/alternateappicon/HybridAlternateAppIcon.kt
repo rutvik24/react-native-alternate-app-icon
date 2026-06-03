@@ -8,11 +8,15 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import androidx.annotation.Keep
+import com.facebook.proguard.annotations.DoNotStrip
 import com.margelo.nitro.NitroModules
 import com.margelo.nitro.core.Promise
 import com.margelo.nitro.alternateappicon.HybridAlternateAppIconSpec
 import java.util.Collections
 
+@Keep
+@DoNotStrip
 class HybridAlternateAppIcon : HybridAlternateAppIconSpec() {
   override fun getActiveIcon(): Promise<String> {
     return Promise.async {

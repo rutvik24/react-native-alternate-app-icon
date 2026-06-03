@@ -38,6 +38,7 @@ Requires RN ≥ 0.76. Pin **`react-native-nitro-modules@0.32.0`** (peer dependen
 | iOS alert | System confirmation dialog is expected Apple behavior |
 | Simulator | Recent iOS simulators may not show the alert — **test on device** |
 | After native changes | Rebuild app — Metro reload alone is insufficient |
+| Android release / R8 | Library ships `consumer-rules.pro`; see [ProGuard docs](https://rutvik24.github.io/react-native-alternate-app-icon/docs/android/proguard) |
 
 ## Quick usage
 

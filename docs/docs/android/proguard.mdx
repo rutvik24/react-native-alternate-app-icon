@@ -1,0 +1,90 @@
+---
+sidebar_position: 2
+title: ProGuard / R8
+---
+
+import {Info, Tip, Warning} from '@site/src/components/DocAdmonition';
+
+# ProGuard and R8
+
+Release builds that enable code shrinking (R8 or ProGuard) need extra care for Nitro modules. **react-native-alternate-app-icon** ships consumer keep rules in its AAR so you usually do not add library-specific rules in your app.
+
+## Enable shrinking in your app
+
+In `android/app/build.gradle`, turn on minification for release and use the optimize defaults:
+
+```gradle
+def enableProguardInReleaseBuilds = true
+
+android {
+    buildTypes {
+        release {
+            minifyEnabled enableProguardInReleaseBuilds
+            shrinkResources enableProguardInReleaseBuilds
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+    }
+}
+```
+
+<Tip title="Use proguard-android-optimize.txt">
+
+Prefer `proguard-android-optimize.txt` over the older `proguard-android.txt`. The optimize file includes standard keeps for Android components and enables R8 optimizations.
+
+</Tip>
+
+## What the library provides
+
+The module’s `android/consumer-rules.pro` is merged automatically when your app depends on this package. It keeps:
+
+- `com.alternateappicon.**` — Kotlin implementation (`HybridAlternateAppIcon`, package entry)
+- `com.margelo.nitro.alternateappicon.**` — Nitrogen-generated Nitro specs and loaders
+- Subclasses of `com.margelo.nitro.core.HybridObject` — required because hybrids are created from C++ via JNI
+
+You do **not** need to copy those rules into `android/app/proguard-rules.pro` unless you fork or patch the library.
+
+## Activity aliases
+
+Your `activity-alias` entries live in `AndroidManifest.xml`, not as Java classes. AAPT2 and R8 already keep manifest-declared components (activities, services, aliases).
+
+<Info title="Avoid redundant keeps">
+
+Do not add broad rules such as `-keep public class * extends android.app.Activity`. They are unnecessary for alternate icons and can block useful optimizations. See [Android’s guidance on redundant R8 rules](https://developer.android.com/agents/skills/performance/r8-analyzer/references/REDUNDANT-RULES).
+
+</Info>
+
+## App-specific rules
+
+Add rules to `android/app/proguard-rules.pro` only for **your** code (other SDKs, reflection, serialization). This library does not require extra keeps for `MainActivity` or alias names beyond correct [Android setup](/docs/android/setup).
+
+## Troubleshooting release builds
+
+| Symptom | Likely cause |
+| --- | --- |
+| `setIcon` / `getActiveIcon` work in debug but fail in release | Nitro hybrid stripped before consumer rules were bundled — upgrade to a version that ships `consumer-rules.pro` and clean rebuild |
+| Crash mentioning `HybridAlternateAppIcon` or `AlternateAppIconOnLoad` | Same as above; confirm `minifyEnabled true` still merges consumer rules from all dependencies |
+| Icon names wrong only in release | Usually a naming mismatch in manifest, not ProGuard — alias suffix must match `setIcon()` argument |
+| `getAllAlternativeIcons()` returns fewer icons than expected | Missing or misnamed `activity-alias` entries, not R8 removing aliases |
+
+<Warning title="Rebuild after native changes">
+
+Metro reload is not enough. After changing ProGuard settings or updating this library, run a full release build (`./gradlew assembleRelease` or your CI equivalent).
+
+</Warning>
+
+## Debugging R8
+
+To inspect the merged configuration for a release build:
+
+```properties
+# android/gradle.properties (temporary)
+android.enableR8.fullMode=true
+```
+
+Or add to `proguard-rules.pro`:
+
+```proguard
+-printconfiguration build/outputs/mapping/release/configuration.txt
+```
+
+Compare the effective rules with [consumer-rules.pro](https://github.com/rutvik24/react-native-alternate-app-icon/blob/main/android/consumer-rules.pro) in this repo.

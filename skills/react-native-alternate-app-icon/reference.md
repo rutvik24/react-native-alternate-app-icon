@@ -33,8 +33,9 @@ Docs: https://rutvik24.github.io/react-native-alternate-app-icon/docs/ios/setup
 2. Add `activity-alias` entries targeting `MainActivity`; only one alias enabled at a time.
 3. Icon name = part after `MainActivity` in alias class (e.g. `MainActivityAlternativeIcon` → `AlternativeIcon`).
 4. Library disables other aliases and enables the target; change visible after backgrounding.
+5. **Release / R8:** Consumer ProGuard rules ship in the AAR; no manual keeps for this library. Do not add redundant Activity keeps for aliases.
 
-Docs: https://rutvik24.github.io/react-native-alternate-app-icon/docs/android/setup
+Docs: https://rutvik24.github.io/react-native-alternate-app-icon/docs/android/setup · [ProGuard](https://rutvik24.github.io/react-native-alternate-app-icon/docs/android/proguard)
 
 ## Naming cheat sheet
 
